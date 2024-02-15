@@ -1,5 +1,5 @@
 <?php require_once("config.php"); ?>
-<?php require_once("layouts/header.php"); ?>
+<?php require_once("header.html"); ?>
 
 <h1>Cadastro</h1>
 
@@ -188,4 +188,4 @@
     });
 </script>
 
-<?php require_once("layouts/footer.php"); ?>
+<?php require_once("footer.html"); ?>
