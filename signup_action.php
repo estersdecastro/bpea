@@ -1,5 +1,4 @@
-<?php
-require_once("config.php");
+<?php require_once("config.php");
 
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $social_name = filter_input(INPUT_POST, 'social_name', FILTER_SANITIZE_STRING);

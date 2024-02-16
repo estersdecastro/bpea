@@ -1,5 +1,5 @@
 <?php require_once("config.php"); ?>
-<?php require_once("header.html"); ?>
+<?php require_once(__DIR__ . '/header.php'); ?>
 
 <h1>Cadastro</h1>
 
@@ -137,7 +137,7 @@
     </div>
 
     <div class="form-group row">
-        <a href="index.php">Já tem conta? Faça login</a>
+        <a href="login.php">Já tem conta? Faça login</a>
     </div>
         
 </div>
@@ -187,4 +187,4 @@
     });
 </script>
 
-<?php require_once("footer.html"); ?>
+<?php require_once(__DIR__ . '/footer.php'); ?>

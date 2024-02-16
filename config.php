@@ -1,6 +1,5 @@
-<?php
+<?php session_start(); 
 
-session_start();
 
 $dbData = new stdClass();
 

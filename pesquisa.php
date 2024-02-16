@@ -1,6 +1,4 @@
-<?php
-session_start();
-
+<?php session_start();
 
 // Verifica se o usuário está logado
 //if (!isset($_SESSION['user_id'])) {
@@ -14,8 +12,8 @@ session_start();
 // Fulano = "<?php echo $_SESSION['user_id']; interrgação>
 
 ?>
-
 <?php require_once(__DIR__ . '/header.php'); ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -25,8 +23,26 @@ session_start();
 <body>
     <h1>Bem-vindo ao Dashboard</h1>
     <p>Olá, Fulano. Você está logado</p>
-    <p><a href="pesquisa.php">Pesquisar</a></p>
-    <p><a href="cadastro_material.php">Cadastrar</a></p>
+    <h2>Formulário de Pesquisa</h2>
+
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+      <div class="col-xs-1-12">
+          <label for="type">Tipo</label>
+          <select name="type" id="type">
+              <option value=""></option>
+
+              <option value="colaborador">Vídeo</option>
+              <option value="discente">PDF</option>
+              <option value="docente">Áudio</option>
+              <option value="tae">Imagem</option>
+              <option value="tec_acc">Documento</option>
+          </select>
+      </div>
+      <label for="query">Pesquisa:</label><br>
+      <input type="text" id="query" name="query" value=""><br>
+      <input type="submit" value="Submit">
+    </form>
+
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // coleta o valor de entrada do formulário
@@ -38,8 +54,8 @@ session_start();
       }
     }
     ?>
-  
-  
+
+  <p><a href="dashboard.php">Voltar</a></p>
   <p><a href="index.php">Sair</a></p>
 </body>
 </html>
