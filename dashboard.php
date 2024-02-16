@@ -23,8 +23,7 @@ session_start();
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Bem-vindo ao Dashboard</h1>
-    <p>Olá, Fulano. Você está logado</p>
+    
     <p><a href="pesquisa.php">Pesquisar</a></p>
     <p><a href="cadastro_material.php">Cadastrar</a></p>
     <?php
