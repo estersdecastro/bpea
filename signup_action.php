@@ -184,5 +184,5 @@ if ($type == "tec_tcc")
 }
 
 $_SESSION['success'] = 'Usuário cadastrado com sucesso';
-header("Location: login.php");
+header("Location: index.php");
 exit();

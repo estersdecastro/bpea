@@ -1,6 +1,6 @@
-<?php require_once("layouts/header.php"); ?>
+<?php require_once("header.php"); ?>
 
-<h1>Login</h1>
+<h1>Login</h1> 
 
 <?php if (isset($_SESSION['error'])) : ?>
     <div class="alert alert-danger" role="alert">
@@ -35,9 +35,9 @@
     </div>
 
     <div class="form-group row">
-        <a href="signup.php">Cadastrar</a>
+        <a href="signup.php">Cadastro</a>
     </div>
 
 </div>
 
-<?php require_once("layouts/footer.php"); ?>
+<?php require_once("footer.php"); ?>

@@ -137,11 +137,10 @@
     </div>
 
     <div class="form-group row">
-        <a href="signup.php">Já tem conta? Faça login</a>
+        <a href="index.php">Já tem conta? Faça login</a>
     </div>
         
 </div>
-
 <script>
     $(document).ready(function () {
         $('#pcd').change((event) => {
