@@ -1,17 +1,26 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado
-//if (!isset($_SESSION['user_id'])) {
-//    header("Location: index.php");
-//    exit();
-//}
+$dbData = new stdClass();
+$dbData->driver = 'pgsql';
+$dbData->host = 'ep-little-pond-a5cdk7kd.us-east-2.aws.neon.tech';
+$dbData->port = 5432;
+$dbData->dbname = 'neondb';
+$dbData->user = 'neon';
+$dbData->password = 'RZMpPoCQDu43';
 
-// Aqui você pode buscar mais informações sobre o usuário se necessário
-//$user = getUserFromDatabase($_SESSION['user_id']);
+try {
+    $dbData->connection = new PDO(
+        "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
+        $dbData->user,
+        $dbData->password
+    );
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
 
+require_once(__DIR__ . '/header.php'); 
 ?>
-<?php require_once(__DIR__ . '/header.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -42,15 +51,22 @@ session_start();
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      // coleta os valores de entrada do formulário
       $nome = htmlspecialchars($_REQUEST['nome']); 
       $type = htmlspecialchars($_REQUEST['type']); 
 
       if (empty($nome) || empty($type)) {
         echo "Todos os campos são obrigatórios.";
       } else {
-        echo "Categoria cadastrada com sucesso: '$nome', Tipo: '$type'";
-        // Aqui você pode adicionar o código para salvar os dados no banco de dados
+        $sql = "INSERT INTO PEA (nome, type) VALUES (:nome, :type)";
+
+        $stmt = $dbData->connection->prepare($sql);
+
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':type', $type);
+
+        $stmt->execute();
+
+        echo "Material cadastrado com sucesso: '$nome', Tipo: '$type'";
       }
     }
     ?>
