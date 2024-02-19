@@ -14,6 +14,11 @@ Os arquivos PHP neste repositório complementam a experiência do usuário, ofer
 - Registro e visualização de projetos de ensino e aprendizagem.
 - Integração com categorias para classificação dos projetos.
 
+## Requisitos
+- PHP 7.4 ou superior
+- MySQL 5.7 ou superior
+- Servidor web (como Apache ou Nginx)
+
 ## Instruções de Uso
 1. Importe o código SQL fornecido para criar o banco de dados e tabelas.
 2. Configure a conexão do banco de dados no arquivo PHP conforme necessário.
