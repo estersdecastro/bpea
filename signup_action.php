@@ -1,15 +1,17 @@
-<?php require_once("config.php");
+<?php 
+ob_start(); // Inicia o buffer de saída
+require_once("config.php");
 
-$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-$social_name = filter_input(INPUT_POST, 'social_name', FILTER_SANITIZE_STRING);
+$name = filter_input(INPUT_POST, 'name');
+$social_name = filter_input(INPUT_POST, 'social_name');
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-$cellphone = filter_input(INPUT_POST, 'cellphone', FILTER_SANITIZE_STRING);
+$cellphone = filter_input(INPUT_POST, 'cellphone');
 $pcd = filter_input(INPUT_POST, 'pcd');
-$pcd_type = filter_input(INPUT_POST, 'pcd_type', FILTER_SANITIZE_STRING);
-$campus = filter_input(INPUT_POST, 'campus', FILTER_SANITIZE_STRING);
-$instituto = filter_input(INPUT_POST, 'instituto', FILTER_SANITIZE_STRING);
-$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-$type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
+$pcd_type = filter_input(INPUT_POST, 'pcd_type');
+$campus = filter_input(INPUT_POST, 'campus');
+$instituto = filter_input(INPUT_POST, 'instituto');
+$password = filter_input(INPUT_POST, 'password');
+$type = filter_input(INPUT_POST, 'type');
 
 if (!$name)
 {
@@ -73,11 +75,11 @@ if ($pcd && !$pcd_type) {
     exit();
 }
 
-$cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
-$matricula = filter_input(INPUT_POST, 'matricula', FILTER_SANITIZE_STRING);
-$siape = filter_input(INPUT_POST, 'siape', FILTER_SANITIZE_STRING);
-$course = filter_input(INPUT_POST, 'course', FILTER_SANITIZE_STRING);
-$nucleo = filter_input(INPUT_POST, 'nucleo', FILTER_SANITIZE_STRING);
+$cpf = filter_input(INPUT_POST, 'cpf');
+$matricula = filter_input(INPUT_POST, 'matricula');
+$siape = filter_input(INPUT_POST, 'siape');
+$course = filter_input(INPUT_POST, 'course');
+$nucleo = filter_input(INPUT_POST, 'nucleo');
 
 if ($type != "colaborador" && $type != "discente" && $type != "docente" && $type != "tae" && $type != "tec_acc") {
     $_SESSION['error'] = 'Tipo inválido';
@@ -135,6 +137,12 @@ $stmt->bindValue(':instituto', $instituto);
 $stmt->bindValue(':senha', password_hash($password, PASSWORD_DEFAULT));
 $stmt->bindValue(':tipo_login', $type);
 $stmt->execute();
+?>
+
+<?php $_SESSION['success'] = 'Cadastro realizado com sucesso!';?>
+
+<?php header('Location: index.php'); // Redireciona para index.php
+exit();
 
 if ($type == "colaborador") {
     $sqlColaborador = "INSERT INTO \"Usuario_Colaborador\" (cpf, id_usuario) VALUES (:cpf, :id_usuario)";
@@ -182,6 +190,5 @@ if ($type == "tec_tcc")
     $stmtTae->execute();
 }
 
-$_SESSION['success'] = 'Usuário cadastrado com sucesso';
-header("Location: index.php");
-exit();
+ob_end_flush(); // Limpa o buffer de saída e desliga o armazenamento em buffer de saída
+?>

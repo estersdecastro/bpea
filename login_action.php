@@ -1,9 +1,9 @@
 <?php 
-ob_start(); // Inicia o buffer de saída
+ob_start(); 
 require_once(__DIR__ . '/config.php');
 
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-$password = htmlspecialchars($_POST['password']); // Usa htmlspecialchars em vez de FILTER_SANITIZE_STRING
+$password = htmlspecialchars($_POST['password']); 
 
 if (!$email || !$password) {
     $_SESSION['error'] = 'O email e a senha devem ser preenchidos';
@@ -26,12 +26,11 @@ if ($stmtUser->rowCount() > 0) {
       
     } else {
         $_SESSION['error'] = 'Senha incorreta';
-        header("Location: index.php");
+        header("Location: erro.php");
         
     }
 } else {
     $_SESSION['error'] = 'Usuário não encontrado';
-    header("Location: index.php");
+    header("Location: erro.php");
     
 }
-//ob_end_flush(); // Envia o conteúdo do buffer de saída e desliga o buffer de saída

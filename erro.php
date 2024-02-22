@@ -1,12 +1,5 @@
-<?php
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Erro</title>
-</head>
+<?php require_once('header.php'); ?>
 <body>
-    <h1>Erro</h1>
+    <h1>Senha incorreta</h1>
 </body>
 </html>

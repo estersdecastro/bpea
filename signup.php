@@ -69,7 +69,7 @@
 
             <div class="col-xs-1-12">
                 <label for="pcd">PCD</label>
-                <input type="checkbox" class="form-control" id="pcd" name="pcd" required>
+                <input type="checkbox" class="form-control" id="pcd" name="pcd">
             </div>
 
             <div class="col-xs-1-12 hidden">
@@ -139,7 +139,7 @@
     <div class="form-group row">
         <a href="login.php">Já tem conta? Faça login</a>
     </div>
-        
+
 </div>
 <script>
     $(document).ready(function () {
@@ -147,9 +147,9 @@
             const value = event.target.checked;
 
             if (value) {
-                $('#pcd_type').add('required').closest('div').removeClass('hidden')
+                $('#pcd_type').closest('div').removeClass('hidden')
             } else {
-                $('#pcd_type').removeAttr('required').closest('div').addClass('hidden')
+                $('#pcd_type').closest('div').addClass('hidden')
             }
         });
 

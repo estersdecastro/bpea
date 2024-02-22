@@ -1,63 +1,90 @@
-<?php session_start();
+<?php
+    error_reporting(E_ERROR | E_PARSE);
 
-// Verifica se o usuário está logado
-//if (!isset($_SESSION['user_id'])) {
-//    header("Location: index.php");
-//    exit();
-//}
+    // Inclua o arquivo de configuração
+    require 'config.php';
 
-// Aqui você pode buscar mais informações sobre o usuário se necessário
-//$user = getUserFromDatabase($_SESSION['user_id']);
+    $lnk = new PDO(
+        "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
+        $dbData->user,
+        $dbData->password
+    );
 
-// Fulano = "<?php echo $_SESSION['user_id']; interrgação>
+    $sql = 'SELECT * FROM "PEA" ORDER BY titulo ASC';
+    $titulo = $_GET
+      ['titulo'];
 
+    if(!is_null($titulo) && !empty($titulo)) 
+        $sql = "SELECT * FROM \"PEA\" WHERE titulo LIKE '".$titulo."' ORDER BY titulo ASC";
+
+    $qry = $lnk->query($sql);
+    $count = $qry->rowCount();
+    $qry->execute();
+    $data = $qry->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php require_once(__DIR__ . '/header.php'); ?>
 
+<?php include 'header.php'; ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1>Bem-vindo ao Dashboard</h1>
-    <p>Olá, Fulano. Você está logado</p>
-    <h2>Formulário de Pesquisa</h2>
+<h1 style="
+    text-align: center;
+    height: 7;
+    margin-top: 150;
+    margin-bottom:70;
+"> Consulta de PEA </h1>
 
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-      <div class="col-xs-1-12">
-          <label for="type">Tipo</label>
-          <select name="type" id="type">
-              <option value=""></option>
+<form method="get" >
+    <div class="col-lg-3">
+        <div class="form-group">
+            <label for="titulo">Título: </label>
+            <input class="form-control" id="titulo" placeholder="Título do PEA" name="titulo" value="<?= $titulo ?? "" ?>">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 24;">Buscar</button>
+</form>
 
-              <option value="colaborador">Vídeo</option>
-              <option value="discente">PDF</option>
-              <option value="docente">Áudio</option>
-              <option value="tae">Imagem</option>
-              <option value="tec_acc">Documento</option>
-          </select>
-      </div>
-      <label for="query">Pesquisa:</label><br>
-      <input type="text" id="query" name="query" value=""><br>
-      <input type="submit" value="Submit">
-    </form>
-
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      // coleta o valor de entrada do formulário
-      $query = htmlspecialchars($_REQUEST['query']); 
-      if (empty($query)) {
-        echo "Nada foi pesquisado.";
-      } else {
-        echo "O termo pesquisado foi: '$query'";
-      }
+<?php
+    if(!is_null($titulo) && !empty($titulo)) {
+        if($count > 0) {
+            echo 'Encontrado registros com o título ' . $titulo;
+        } else {
+            echo 'Nenhum registro foi encontrado com o título ' . $titulo;
+        }
     }
-    ?>
+?>
 
-  <p><a href="dashboard.php">Voltar</a></p>
-  <p><a href="index.php">Sair</a></p>
-</body>
-</html>
+<table class="table table-striped">
+    <thead>
+      <th>Título</th>
+      <th>Formato</th>
+      <th>Tipo</th>
+      <th >Local</th>
+      <th>Uso</th>
+      <th>Fonte Original</th>
+      <th>CID PCD</th>
+      <th>Comentário</th>
+    </thead>
 
-<?php require_once(__DIR__ . '/footer.php'); ?>
+    <tbody>
+      <?php foreach($data as $row): ?>
+        <tr>
+            <td><?php echo $row['titulo']; ?></td>
+            <td><?php echo $row['formato']; ?></td>
+            <td><?php echo $row['tipo']; ?></td>
+            <td>
+              <a href="<?php echo $row['local']; ?>" target="_blank">
+                Baixar
+              </a>
+            </td>
+            </td>
+            <td><?php echo $row['uso']; ?></td>
+            <td><?php echo $row['fonte_original']; ?></td>
+            <td><?php echo $row['cid_pcd']; ?></td>
+            <td><?php echo $row['comentario']; ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+</table>
+
+<p><a href="dashboard.php">Voltar</a></p>
+<p><a href="index.php">Sair</a></p>
+<?php include 'footer.php'; ?>
