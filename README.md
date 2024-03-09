@@ -1,6 +1,6 @@
-# Projeto Acadêmico: Sistema de Gerenciamento de Banco de Dados PEA
+#Banco de Dados PEA - UFPA
 
-Este repositório contém A Estrutura e interface juntamente com arquivos PHP que compõem uma interface web para interação com o banco de dados, para criar um banco de dados relacional voltado para um sistema de gerenciamento acadêmico de Materiais de apoio e acessibilidade para pessoas com Deficiência no Ensino Superior da Universidade Federal do Pará (UFPA) e Universidade Federal Rural da Amazônia (UFRA).
+Este repositório contém A Estrutura e interface que compõem uma sistema para interação com o banco de dados, para criar um banco de dados relacional voltado para um sistema de gerenciamento acadêmico de Produtos Educacionais Especiais do Acessar (PEA) de apoio e acessibilidade para pessoas com Deficiência no Ensino Superior da Universidade Federal do Pará (UFPA) e Universidade Federal Rural da Amazônia (UFRA).
 
 ## Estrutura do Banco de Dados
 - **Usuario:** Armazena informações gerais sobre usuários, como estudantes, docentes, colaboradores, técnicos e administrativos.
@@ -16,7 +16,7 @@ Os arquivos PHP neste repositório complementam a experiência do usuário, ofer
 
 ## Requisitos
 - PHP 7.4 ou superior
-- MySQL 5.7 ou superior
+- PostgreSQL 12.0 ou superior
 - Servidor web (como Apache ou Nginx)
 
 ## Instruções de Uso
