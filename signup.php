@@ -13,39 +13,6 @@
 
     <div class="form-group row">
         <form action="signup_action.php" method="post">
-            <!--
-                - Nome
-                - Nome Social
-                - Email
-                - Celular
-                - PCD
-                - PCD Tipo
-                - Campus
-                - Instituto
-                - Tipo Login
-                - Senha
-
-                - Tipo Login: Colaborador, Discente, Docente, TAE, Técnico em Acessibilidade
-
-                - Colaborador:
-                    - CPF
-
-                - Discente:
-                    - Matrícula
-                    - Curso
-
-                - Docente:
-                    - Siape
-                    - Curso
-                    - Núcleo
-
-                - TAE:
-                    - CPF
-
-                - Docente:
-                    - Siape
-                    - Núcleo
-            -->
 
             <div class="col-xs-1-12">
                 <label for="name">Nome</label>
@@ -61,86 +28,7 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-
-            <div class="col-xs-1-12">
-                <label for="cellphone">Celular</label>
-                <input type="text" class="form-control" id="cellphone" name="cellphone" required>
-            </div>
-
-            <div class="col-xs-1-12">
-                <label for="pcd">PCD</label>
-                <input type="checkbox" class="form-control" id="pcd" name="pcd">
-            </div>
-
-            <div class="col-xs-1-12 hidden">
-                <label for="pcd_type">PCD Tipo</label>
-                <input type="text" class="form-control" id="pcd_type" name="pcd_type">
-            </div>
-
-            <div class="col-xs-1-12">
-                <label for="campus">Campus</label>
-                <input type="text" class="form-control" id="campus" name="campus" required>
-            </div>
-
-            <div class="col-xs-1-12">
-                <label for="instituto">Instituto</label>
-                <input type="text" class="form-control" id="instituto" name="instituto" required>
-            </div>
-
-            <div class="col-xs-1-12">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-
-            <div class="col-xs-1-12">
-                <label for="type">Tipo</label>
-                <select name="type" id="type">
-                    <option value=""></option>
-
-                    <option value="colaborador">Colaborador</option>
-                    <option value="discente">Discente</option>
-                    <option value="docente">Docente</option>
-                    <option value="tae">TAE</option>
-                    <option value="tec_acc">Técnico em Acessibilidade</option>
-                </select>
-            </div>
-
-            <div class="col-xs-1-12 hidden type-depender">
-                <label for="cpf">CPF</label>
-                <input type="text" class="form-control" id="cpf" name="cpf">
-            </div>
-
-            <div class="col-xs-1-12 hidden type-depender">
-                <label for="matricula">Matrícula</label>
-                <input type="text" class="form-control" id="matricula" name="matricula">
-            </div>
-
-            <div class="col-xs-1-12 hidden type-depender">
-                <label for="siape">Siape</label>
-                <input type="text" class="form-control" id="siape" name="siape">
-            </div>
-
-            <div class="col-xs-1-12 hidden type-depender">
-                <label for="course">Curso</label>
-                <input type="text" class="form-control" id="course" name="course">
-            </div>
-
-            <div class="col-xs-1-12 hidden type-depender">
-                <label for="nucleo">Núcleo</label>
-                <input type="text" class="form-control" id="nucleo" name="nucleo">
-            </div>
-
-            <div class="col-xs-1-12">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="form-group row">
-        <a href="login.php">Já tem conta? Faça login</a>
-    </div>
-
-</div>
+<?php require ('signup_body.php')?>
 <script>
     $(document).ready(function () {
         $('#pcd').change((event) => {

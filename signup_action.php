@@ -13,6 +13,7 @@ $instituto = filter_input(INPUT_POST, 'instituto');
 $password = filter_input(INPUT_POST, 'password');
 $type = filter_input(INPUT_POST, 'type');
 
+
 if (!$name)
 {
     $_SESSION['error'] = 'O nome deve ser preenchido';
@@ -113,18 +114,18 @@ if (($type == "tae" || $type == "tec_acc") && (!$siape || !$nucleo))
     exit();
 }
 
+
 $sqlUser = "SELECT * FROM \"Usuario\" WHERE email = :email";
 $stmtUser = $dbData->connection->prepare($sqlUser);
 $stmtUser->bindValue(':email', $email);
-$stmtUser->execute();
-
+$stmtUser->execute(); 
 if ($stmtUser->rowCount() > 0) {
     $_SESSION['error'] = 'E-mail já cadastrado';
     header("Location: signup.php");
     exit;
 }
 
-$sql = "INSERT INTO \"Usuario\" (nome, nome_social, email, celular, pcd, pcd_tipo, campus, instituto, senha, tipo_login) VALUES (:nome, :nome_social, :email, :telefone, :pcd, :tipo_pcd, :campus, :instituto, :senha, :tipo_login)";
+$sql = "INSERT INTO \"Usuario\" (nome, nome_social, email, telefone, pcd, tipo_pcd, campus, instituto, password, tipo_login) VALUES (:nome, :nome_social, :email, :telefone, :pcd, :tipo_pcd, :campus, :instituto, :password, :tipo_login)";
 $stmt = $dbData->connection->prepare($sql);
 $stmt->bindValue(':nome', $name);
 $stmt->bindValue(':nome_social', $social_name);
@@ -134,7 +135,7 @@ $stmt->bindValue(':pcd', $pcd);
 $stmt->bindValue(':tipo_pcd', $pcd_type);
 $stmt->bindValue(':campus', $campus);
 $stmt->bindValue(':instituto', $instituto);
-$stmt->bindValue(':senha', password_hash($password, PASSWORD_DEFAULT));
+$stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
 $stmt->bindValue(':tipo_login', $type);
 $stmt->execute();
 ?>
@@ -143,6 +144,13 @@ $stmt->execute();
 
 <?php header('Location: index.php'); // Redireciona para index.php
 exit();
+
+if ($type == "gestor")
+{
+    $sqlTae = "INSERT INTO \"Gestor\" (id_usuario) VALUES (:id_usuario)";
+    $stmtTae->bindValue(':id_usuario', $dbData->connection->lastInsertId());
+    $stmtTae->execute();
+}
 
 if ($type == "colaborador") {
     $sqlColaborador = "INSERT INTO \"Usuario_Colaborador\" (cpf, id_usuario) VALUES (:cpf, :id_usuario)";

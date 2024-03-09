@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  www:
+    build: .
+    restart: always
+    ports:
+     - '80:80'
+    volumes:
+     - .:/var/www/html
+    networks:
+       - default
+
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: bdufpa
+      POSTGRES_USER: bdufpa
+
+    volumes:
+      - db_data:/var/lib/postgresql
+    networks:
+      - default
+
+volumes:
+  db_data:
+
+

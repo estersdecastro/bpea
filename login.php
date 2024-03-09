@@ -1,48 +1,36 @@
-<?php require_once("header.php"); ?>
+<?php 
+ob_start(); 
+require_once('config.php');
+require_once("header.php");
+
+$message = "";
+
+if (isset($_SESSION['error'])) {
+    $message = $_SESSION["error"];
+    unset($_SESSION['error']);
+}
+
+?>
 
 <h1>Login</h1> 
 
-<?php if (isset($_SESSION['error'])) : ?>
-    <div class="alert alert-danger" role="alert">
-        <?= $_SESSION['error']; ?>
-    </div>
+<?php if(!empty($message)): ?>
+    <p><?= $message ?></p>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['success'])) : ?>
-    <div class="alert alert-success" role="alert">
-        <?= $_SESSION['success']; ?>
-    </div>
-<?php endif; ?>
 
-<?php if (isset($_SESSION['success'])) {
-    echo $_SESSION['success'];
-    unset($_SESSION['success']);
-}
-?>
+<form action="login_action.php" method="post">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required>
+    <input type="submit" value="Entrar">
+</form>
 
-<div class="container">
 
-    <div class="form-group row">
-        <form action="login_action.php" method="post">
-            <div class="col-xs-1-12">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-
-            <div class="col-xs-1-12">
-                <label for="password">Senha</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-
-            <div class="col-xs-1-12">
-                <button type="submit" class="btn btn-primary">Entrar</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="form-group row">
-        <a href="signup.php">Cadastro</a>
-    </div>
+<div class="form-group row">
+    <a href="signup.php">Não tem Login? Cadastre-se</a>
+</div>
 
 </div>
 

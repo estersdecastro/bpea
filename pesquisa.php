@@ -32,13 +32,14 @@
     margin-bottom:70;
 "> Consulta de PEA </h1>
 
-<form method="get" >
+<form method="get">
     <div class="col-lg-3">
         <div class="form-group">
             <label for="titulo">Título: </label>
             <input class="form-control" id="titulo" placeholder="Título do PEA" name="titulo" value="<?= $titulo ?? "" ?>">
         </div>
     </div>
+  <br>
     <button type="submit" class="btn btn-primary" style="margin-top: 24;">Buscar</button>
 </form>
 
@@ -46,45 +47,37 @@
     if(!is_null($titulo) && !empty($titulo)) {
         if($count > 0) {
             echo 'Encontrado registros com o título ' . $titulo;
-        } else {
+?>   
+            <table class="table table-striped">
+              <thead>
+                <th>Título</th>
+                <th>Formato</th>
+                <th>Uso</th>
+                <th>CID PCD</th>
+              </thead>
+
+              <tbody>
+                <?php foreach($data as $row): ?>
+                  <tr>
+                      <td><?php echo $row['titulo']; ?></td>
+                      <td><?php echo $row['formato']; ?></td>
+                      <td><?php echo $row['uso']; ?></td>
+                      <td><?php echo $row['cid_pcd']; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+          </table>
+          <a href="resultado.php?titulo=<?= urlencode($titulo) ?>">Ver resultados completos</a>     
+
+<?php }  
+    else {
             echo 'Nenhum registro foi encontrado com o título ' . $titulo;
         }
     }
 ?>
 
-<table class="table table-striped">
-    <thead>
-      <th>Título</th>
-      <th>Formato</th>
-      <th>Tipo</th>
-      <th >Local</th>
-      <th>Uso</th>
-      <th>Fonte Original</th>
-      <th>CID PCD</th>
-      <th>Comentário</th>
-    </thead>
-
-    <tbody>
-      <?php foreach($data as $row): ?>
-        <tr>
-            <td><?php echo $row['titulo']; ?></td>
-            <td><?php echo $row['formato']; ?></td>
-            <td><?php echo $row['tipo']; ?></td>
-            <td>
-              <a href="<?php echo $row['local']; ?>" target="_blank">
-                Baixar
-              </a>
-            </td>
-            </td>
-            <td><?php echo $row['uso']; ?></td>
-            <td><?php echo $row['fonte_original']; ?></td>
-            <td><?php echo $row['cid_pcd']; ?></td>
-            <td><?php echo $row['comentario']; ?></td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-</table>
-
+<br>
+<p><a href="cadastro_material.php">Cadastrar Novo Material</a></p>
 <p><a href="dashboard.php">Voltar</a></p>
 <p><a href="index.php">Sair</a></p>
 <?php include 'footer.php'; ?>

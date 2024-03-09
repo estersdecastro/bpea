@@ -1,13 +1,49 @@
+<?php
+    require_once './config.php';
+    $sql = $dbData->connection->query("SELECT * FROM \"Categorias\"");
+    $categorias = [];
+    if ($sql->rowCount() > 0) $categorias = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <?php require_once('header.php'); ?>
-    <h2>Formulário de Cadastro</h2>
+    <h2>Formulário de Cadastro</h2><br>
 
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
         <label for="titulo">Título</label>
-        <input type="text" id="titulo" name="titulo" value=""><br>
+        <input type="text" id="titulo" name="titulo" value=""><br> 
 
-        <label for="tipo">Tipo</label>
-        <select id="tipo" name="tipo">
-            <option value="">Selecione o Tipo</option>
+        <label for="keyword">Palavra-Chave</label>
+        <input type="text" id="keyword" name="keyword" value=""><br>
+
+        <label for="ano">Ano</label>
+        <input type="text" id="ano" name="ano" value=""><br>
+
+        <label for="formato">Format o</label>
+          <select id="formato" name="formato">
+              <option value="">Selecione o Formato</option>
+              <option value="audio">Áudio</option>
+              <option value="video">Vídeo</option>
+              <option value="imagem">Imagem</option>
+              <option value="documento">Documento</option>
+              <option value="audio_desc">Áudiodescrição
+              </option>
+              <option value="libras">Libras</option>
+              <option value="braille">Braille</option>
+        </option>
+              <option value="tatil">Tátil</option>
+              <!-- Adicione mais opções conforme necessário -->
+          </select><br>
+
+
+        <label for="curso">Curso</label>
+        <input type="text" id="curso" name="curso" value=""><br>
+
+        <label for="disciplina">Disciplina</label>
+        <input type="text" id="disciplina" name="disciplina" value=""><br>
+
+        <label for="tipo_de_deficiencia">Tipo de Deficiência</label>
+        <select id="tipo_de_deficiencia" name="tipo_de_deficiencia">
+            <option value="">Selecione o Tipo de Deficiência</option>
             <option value="deficiencia_visual">Deficiência Visual</option>
             <option value="deficiencia_auditiva">Deficiência Auditiva</option>
             <option value="deficiencia_fisica">Deficiência Física</option>
@@ -15,20 +51,16 @@
             <!-- Adicione mais opções conforme necessário -->
         </select><br>
 
-        <label for="formato">Formato</label>
-        <select id="formato" name="formato">
-            <option value="">Selecione o Formato</option>
-            <option value="audio">Áudio</option>
-            <option value="video">Vídeo</option>
-            <option value="imagem">Imagem</option>
-            <option value="documento">Documento</option>
+        <label for="id_categoria">ID da Categoria</label>
+        <select id="id_categoria" name="id_categoria">
+            <option value="">Selecione a Categorias</option>
+            <?php foreach($categorias as $categoria): ?>
+                <option value="<?= $categoria['id'] ?>"><?= $categoria['nome']; ?></option>
+            <?php endforeach; ?>
             <!-- Adicione mais opções conforme necessário -->
         </select><br>
-
-        <label for="id_categoria">ID da Categoria</label>
-        <input type="number" id="id_categoria" name="id_categoria" value=""><br>
-
-        <label for="local">Local</label>
+        
+        <label for="local">Upload</label>
         <input type="file" id="local" name="local" value=""><br>
 
         <label for="uso">Uso</label>
@@ -40,23 +72,27 @@
         <label for="cid_pcd">CID PCD</label>
         <input type="text" id="cid_pcd" name="cid_pcd" value=""><br>
 
-        <label for="comentario">Comentário</label>
-        <textarea id="comentario" name="comentario"></textarea><br>
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao"></textarea><br>
 
-        <input type="submit" value="Cadastrar">
+        <br><input type="submit" value="Cadastrar">
     </form>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // coleta o valor de entrada do formulário
         $titulo = htmlspecialchars($_REQUEST['titulo']); 
+        $ano = htmlspecialchars($_REQUEST['ano']);
+        $keyword = htmlspecialchars($_REQUEST['keyword']);
         $formato = htmlspecialchars($_REQUEST['formato']); 
-        $tipo = htmlspecialchars($_REQUEST['tipo']); 
+        $curso = htmlspecialchars($_REQUEST['curso']);
+        $disciplina = htmlspecialchars($_REQUEST['disciplina']);
+        $tipo = htmlspecialchars($_REQUEST['tipo_de_deficiencia']); 
         $id_categoria = htmlspecialchars($_REQUEST['id_categoria']); 
         $uso = htmlspecialchars($_REQUEST['uso']); 
         $fonte_original = htmlspecialchars($_REQUEST['fonte_original']); 
-        $cid_pcd = htmlspecialchars($_REQUEST['cid_pcd']); 
-        $comentario = htmlspecialchars($_REQUEST['comentario']);
+        $cid_pcd = htmlspecialchars($_REQUEST['cid_pcd']);
+        $descricao = htmlspecialchars($_REQUEST['descricao']);
 
         if (isset($_FILES['local'])) {
             $local_tmp = $_FILES['local']['tmp_name'];
@@ -68,7 +104,7 @@
         } else {
             $local = "";
         }
-        require 'config.php';
+        require_once 'config.php';
 
         // Conecte-se ao banco de dados
         $conexao = new PDO(
@@ -79,24 +115,31 @@
 
 
         // Execute a consulta SQL
-        $sql = "INSERT INTO \"PEA\" (titulo, formato, tipo, id_categoria, local, uso, fonte_original, cid_pcd, comentario) 
-                VALUES (:titulo, :formato, :tipo, :id_categoria, :local, :uso, :fonte_original, :cid_pcd, :comenn m jnjn  n ario)";
+
+      $sql = "INSERT INTO \"PEA\" (\"titulo\", \"keyword\", \"ano\", \"formato\", \"curso\", \"disciplina\", \"tipo_de_deficiencia\", \"id_categoria\", \"local\", \"uso\", \"fonte_original\", \"cid_pcd\", \"descricao\") 
+              VALUES (:titulo, :keyword, :ano, :formato, :curso, :disciplina, :tipo_de_deficiencia, :id_categoria, :local, :uso, :fonte_original, :cid_pcd, :descricao)";
+
         $stmt = $conexao->prepare($sql);
         $stmt->bindParam(':titulo', $titulo);
+        $stmt->bindParam(':keyword', $keyword);
+        $stmt->bindParam(':ano', $ano);
         $stmt->bindParam(':formato', $formato);
-        $stmt->bindParam(':tipo', $tipo);
+        $stmt->bindParam(':curso', $curso);
+        $stmt->bindParam(':disciplina', $disciplina);        
+        $stmt->bindParam(':tipo_de_deficiencia', $tipo);
         $stmt->bindParam(':id_categoria', $id_categoria);
         $stmt->bindParam(':local', $local);
         $stmt->bindParam(':uso', $uso);
         $stmt->bindParam(':fonte_original', $fonte_original);
         $stmt->bindParam(':cid_pcd', $cid_pcd);
-        $stmt->bindParam(':comentario', $comentario);
+        $stmt->bindParam(':descricao', $descricao);
         $stmt->execute();
 
         echo "Novo registro criado com sucesso";
     }
     ?>
-
+  <br>
+  <br>
   <p><a href="pesquisa.php">Pesquisar</a></p>
   <p><a href="dashboard.php">Voltar</a></p>
   <p><a href="index.php">Sair</a></p>

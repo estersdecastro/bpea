@@ -1,7 +1,8 @@
 <?php
 session_start();  ?>
+
 <?php require_once('header.php') ?>
-  
+
     <h1>Banco De Dados UFPA</h1>
     <br>
     <p><a href="signup.php">Cadastre-se</a></p>
@@ -10,3 +11,4 @@ session_start();  ?>
 </body>
 </html>
 
+<?php require_once('footer.php')?>
