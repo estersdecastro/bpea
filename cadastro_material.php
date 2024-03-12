@@ -120,19 +120,19 @@
               VALUES (:titulo, :keyword, :ano, :formato, :curso, :disciplina, :tipo_de_deficiencia, :id_categoria, :local, :uso, :fonte_original, :cid_pcd, :descricao)";
 
         $stmt = $conexao->prepare($sql);
-        $stmt->bindParam(':titulo', $titulo);
-        $stmt->bindParam(':keyword', $keyword);
-        $stmt->bindParam(':ano', $ano);
-        $stmt->bindParam(':formato', $formato);
-        $stmt->bindParam(':curso', $curso);
-        $stmt->bindParam(':disciplina', $disciplina);        
-        $stmt->bindParam(':tipo_de_deficiencia', $tipo);
-        $stmt->bindParam(':id_categoria', $id_categoria);
-        $stmt->bindParam(':local', $local);
-        $stmt->bindParam(':uso', $uso);
-        $stmt->bindParam(':fonte_original', $fonte_original);
-        $stmt->bindParam(':cid_pcd', $cid_pcd);
-        $stmt->bindParam(':descricao', $descricao);
+        $stmt->bindValue(':titulo', $titulo);
+        $stmt->bindValue(':keyword', $keyword);
+        $stmt->bindValue(':ano', $ano);
+        $stmt->bindValue(':formato', $formato);
+        $stmt->bindValue(':curso', $curso);
+        $stmt->bindValue(':disciplina', $disciplina);        
+        $stmt->bindValue(':tipo_de_deficiencia', $tipo);
+        $stmt->bindValue(':id_categoria', $id_categoria);
+        $stmt->bindValue(':local', $local);
+        $stmt->bindValue(':uso', $uso);
+        $stmt->bindValue(':fonte_original', $fonte_original);
+        $stmt->bindValue(':cid_pcd', $cid_pcd);
+        $stmt->bindValue(':descricao', $descricao);
         $stmt->execute();
 
         echo "Novo registro criado com sucesso";

@@ -118,14 +118,14 @@ if (($type == "tae" || $type == "tec_acc") && (!$siape || !$nucleo))
 $sqlUser = "SELECT * FROM \"Usuario\" WHERE email = :email";
 $stmtUser = $dbData->connection->prepare($sqlUser);
 $stmtUser->bindValue(':email', $email);
-$stmtUser->execute(); 
+
 if ($stmtUser->rowCount() > 0) {
     $_SESSION['error'] = 'E-mail já cadastrado';
     header("Location: signup.php");
     exit;
 }
 
-$sql = "INSERT INTO \"Usuario\" (nome, nome_social, email, telefone, pcd, tipo_pcd, campus, instituto, password, tipo_login) VALUES (:nome, :nome_social, :email, :telefone, :pcd, :tipo_pcd, :campus, :instituto, :password, :tipo_login)";
+$sql = "INSERT INTO \"Usuario\" (nome, nome_social, email, celular, pcd, pcd_tipo, campus, instituto, senha, tipo_login) VALUES (:nome, :nome_social, :email, :telefone, :pcd, :tipo_pcd, :campus, :instituto, :password, :tipo_login)";
 $stmt = $dbData->connection->prepare($sql);
 $stmt->bindValue(':nome', $name);
 $stmt->bindValue(':nome_social', $social_name);

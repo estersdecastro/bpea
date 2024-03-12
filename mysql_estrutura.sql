@@ -21,7 +21,7 @@ CREATE TABLE `Usuario_Discente` (
 
 CREATE TABLE `Usuario_Docente` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `siape` varchar(32) UNIQUE NOT NULL,
+  `matricula` varchar(32) UNIQUE NOT NULL,
   `curso` varchar(32) NOT NULL,
   `nucleo` boolean NOT NULL,
   `id_usuario` int NOT NULL
@@ -35,14 +35,14 @@ CREATE TABLE `Usuario_Colaborador` (
 
 CREATE TABLE `Usuario_TAE` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `siape` varchar(32) UNIQUE NOT NULL,
+  `matricula` varchar(32) UNIQUE NOT NULL,
   `nucleo` boolean NOT NULL,
   `id_usuario` int NOT NULL
 );
 
 CREATE TABLE `Usuario_TecAccesibilidade` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `siape` varchar(32) UNIQUE NOT NULL,
+  `matricula` varchar(32) UNIQUE NOT NULL,
   `nucleo` boolean NOT NULL,
   `id_usuario` int NOT NULL
 );
@@ -58,7 +58,7 @@ CREATE TABLE `PEA` (
   `tipo` varchar(32) NOT NULL,
   `id_categoria` int,
   `local` varchar(32) NOT NULL,
-  `uso` varchar(32) NOT NULL COMMENT 'Indidual|Grupo',
+  `uso` varchar(32) NOT NULL COMMENT 'Indidual|Grupo',  
   `fonte_original` varchar(128) NOT NULL,
   `cid_pcd` VARCHAR(32) NOT NULL,
   `comentario` TEXT
