@@ -3,6 +3,22 @@
     $sql = $dbData->connection->query("SELECT * FROM \"Categorias\"");
     $categorias = [];
     if ($sql->rowCount() > 0) $categorias = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+    if (!file_exists(__DIR__ . "/arquivos")) {
+        mkdir(__DIR__ . "/arquivos", 0777, true);
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {}
+        if (isset($_FILES['local'])) {
+            $local_tmp = $_FILES['local']['tmp_name'];
+            $file_name = $_FILES['local']['name'];
+            $file_path = "arquivos/" . md5(uniqid()) . "_" . $file_name;
+            move_uploaded_file($local_tmp, __DIR__ . "/" . $file_path);
+            $file_url = "http://" . $_SERVER['HTTP_HOST'] . "/" . $file_path;
+            $local = $file_url;
+        } else {
+            $local = "";
+    }
 ?>
 
 <?php require_once('header.php'); ?>
@@ -40,6 +56,9 @@
 
         <label for="disciplina">Disciplina</label>
         <input type="text" id="disciplina" name="disciplina" value=""><br>
+        
+        <label for="tipo">Tipo</label>
+        <input type="text" id="tipo" name="tipo" value=""><br>
 
         <label for="tipo_de_deficiencia">Tipo de Deficiência</label>
         <select id="tipo_de_deficiencia" name="tipo_de_deficiencia">
@@ -56,6 +75,7 @@
             <option value="">Selecione a Categorias</option>
             <?php foreach($categorias as $categoria): ?>
                 <option value="<?= $categoria['id'] ?>"><?= $categoria['nome']; ?></option>
+                
             <?php endforeach; ?>
             <!-- Adicione mais opções conforme necessário -->
         </select><br>
@@ -87,7 +107,8 @@
         $formato = htmlspecialchars($_REQUEST['formato']); 
         $curso = htmlspecialchars($_REQUEST['curso']);
         $disciplina = htmlspecialchars($_REQUEST['disciplina']);
-        $tipo = htmlspecialchars($_REQUEST['tipo_de_deficiencia']); 
+        $tipo = htmlspecialchars($_REQUEST['tipo']);
+        $tipo_def = htmlspecialchars($_REQUEST['tipo_de_deficiencia']); 
         $id_categoria = htmlspecialchars($_REQUEST['id_categoria']); 
         $uso = htmlspecialchars($_REQUEST['uso']); 
         $fonte_original = htmlspecialchars($_REQUEST['fonte_original']); 
@@ -116,7 +137,7 @@
 
         // Execute a consulta SQL
 
-      $sql = "INSERT INTO \"PEA\" (\"titulo\", \"keyword\", \"ano\", \"formato\", \"curso\", \"disciplina\", \"tipo_de_deficiencia\", \"id_categoria\", \"local\", \"uso\", \"fonte_original\", \"cid_pcd\", \"descricao\") 
+      $sql = "INSERT INTO \"PEA\" (\"titulo\", \"keyword\", \"ano\", \"formato\", \"curso\", \"disciplina\", \"tipo\", \"tipo_de_deficiencia\", \"id_categoria\", \"local\", \"uso\", \"fonte_original\", \"cid_pcd\", \"descricao\") 
               VALUES (:titulo, :keyword, :ano, :formato, :curso, :disciplina, :tipo_de_deficiencia, :id_categoria, :local, :uso, :fonte_original, :cid_pcd, :descricao)";
 
         $stmt = $conexao->prepare($sql);
@@ -125,8 +146,9 @@
         $stmt->bindValue(':ano', $ano);
         $stmt->bindValue(':formato', $formato);
         $stmt->bindValue(':curso', $curso);
-        $stmt->bindValue(':disciplina', $disciplina);        
-        $stmt->bindValue(':tipo_de_deficiencia', $tipo);
+        $stmt->bindValue(':disciplina', $disciplina); 
+        $stmt->bindValue(':tipo', $tipo);       
+        $stmt->bindValue(':tipo_de_deficiencia', $tipo_def);
         $stmt->bindValue(':id_categoria', $id_categoria);
         $stmt->bindValue(':local', $local);
         $stmt->bindValue(':uso', $uso);

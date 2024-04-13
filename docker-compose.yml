@@ -5,7 +5,7 @@ services:
     build: .
     restart: always
     ports:
-     - '8080:80'
+     - '5000:80'
     volumes:
      - .:/var/www/html
     networks:
@@ -15,7 +15,7 @@ services:
     image: postgres:latest
     restart: always
     ports:
-      - '5432:5432'
+      - '5001:5432'
     environment:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: bdufpa

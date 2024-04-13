@@ -1,4 +1,4 @@
-CREATE TABLE `Usuario` (
+CREATE TABLE `usuario` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `nome` varchar(128) NOT NULL,
   `nome_social` varchar(128),
@@ -12,14 +12,14 @@ CREATE TABLE `Usuario` (
   `senha` varchar(256) NOT NULL
 );
 
-CREATE TABLE `Usuario_Discente` (
+CREATE TABLE `discentes` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `matricula` varchar(32) UNIQUE NOT NULL,
   `curso` varchar(32) NOT NULL,
   `id_usuario` int NOT NULL
 );
 
-CREATE TABLE `Usuario_Docente` (
+CREATE TABLE `docentes` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `matricula` varchar(32) UNIQUE NOT NULL,
   `curso` varchar(32) NOT NULL,
@@ -27,24 +27,30 @@ CREATE TABLE `Usuario_Docente` (
   `id_usuario` int NOT NULL
 );
 
-CREATE TABLE `Usuario_Colaborador` (
+CREATE TABLE `colaboradores` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `cpf` varchar(32) UNIQUE NOT NULL,
   `id_usuario` int NOT NULL
 );
 
-CREATE TABLE `Usuario_TAE` (
+CREATE TABLE `TAES` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `matricula` varchar(32) UNIQUE NOT NULL,
   `nucleo` boolean NOT NULL,
   `id_usuario` int NOT NULL
 );
 
-CREATE TABLE `Usuario_TecAccesibilidade` (
+CREATE TABLE `tec_acessibilidade` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `matricula` varchar(32) UNIQUE NOT NULL,
   `nucleo` boolean NOT NULL,
   `id_usuario` int NOT NULL
+);
+
+CREATE TABLE `gestores` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `id_usuario` int NOT NULL,
+  `nivel_acesso` int NOT NULL
 );
 
 CREATE TABLE `Categorias` (
@@ -54,24 +60,35 @@ CREATE TABLE `Categorias` (
 
 CREATE TABLE `PEA` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `titulo` VARCHAR(128),
+  `keyword` VARCHAR(128),
+  `ano` INT,
   `formato` varchar(32),
+  `curso` VARCHAR(128),
+  `disciplina` VARCHAR(128),
   `tipo` varchar(32) NOT NULL,
+  `tipo_de_deficiencia` VARCHAR(128),
   `id_categoria` int,
   `local` varchar(32) NOT NULL,
   `uso` varchar(32) NOT NULL COMMENT 'Indidual|Grupo',  
   `fonte_original` varchar(128) NOT NULL,
   `cid_pcd` VARCHAR(32) NOT NULL,
+  `descricao` TEXT,
   `comentario` TEXT
 );
 
-ALTER TABLE `Usuario_Discente` ADD FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id`);
+ALTER TABLE `discentes` ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
-ALTER TABLE `Usuario_TAE` ADD FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id`);
+ALTER TABLE `TAES` ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
-ALTER TABLE `Usuario_Colaborador` ADD FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id`);
+ALTER TABLE `colaboradores` ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
-ALTER TABLE `Usuario_Docente` ADD FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id`);
+ALTER TABLE `docentes` ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
-ALTER TABLE `Usuario_TecAccesibilidade` ADD FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id`);
+ALTER TABLE `tec_acessibilidade` ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
+
+ALTER TABLE `gestores` ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
 ALTER TABLE `PEA` ADD FOREIGN KEY (`id_categoria`) REFERENCES `Categorias` (`id`);
+
+INSERT INTO `Categorias` (`nome`) VALUES ('1');

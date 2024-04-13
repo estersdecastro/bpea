@@ -125,12 +125,12 @@ if ($stmtUser->rowCount() > 0) {
     exit;
 }
 
-$sql = "INSERT INTO \"Usuario\" (nome, nome_social, email, celular, pcd, pcd_tipo, campus, instituto, senha, tipo_login) VALUES (:nome, :nome_social, :email, :telefone, :pcd, :tipo_pcd, :campus, :instituto, :password, :tipo_login)";
+$sql = "INSERT INTO \"Usuario\" (nome, nome_social, email, celular, pcd, pcd_tipo, campus, instituto, senha, tipo_login) VALUES (:nome, :nome_social, :email, :celular, :pcd, :tipo_pcd, :campus, :instituto, :password, :tipo_login)";
 $stmt = $dbData->connection->prepare($sql);
 $stmt->bindValue(':nome', $name);
 $stmt->bindValue(':nome_social', $social_name);
 $stmt->bindValue(':email', $email);
-$stmt->bindValue(':telefone', $cellphone);
+$stmt->bindValue(':celular', $cellphone);
 $stmt->bindValue(':pcd', $pcd);
 $stmt->bindValue(':tipo_pcd', $pcd_type);
 $stmt->bindValue(':campus', $campus);
