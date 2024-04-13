@@ -55,6 +55,7 @@
                         <td><?php echo $row['titulo']; ?></td>
                         <td><?php echo $row['formato']; ?></td>
                         <td><?php echo $row['tipo']; ?></td>
+                        <td><?php echo $row['tipo_def']; ?></td>
                         <td>
                           <a href="<?php echo $row['local']; ?>" target="_blank">
                             Baixar
