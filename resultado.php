@@ -2,7 +2,7 @@
     error_reporting(E_ERROR | E_PARSE);
 
     // Inclua o arquivo de configuração
-    require '/config.php';
+    require 'config.php';
 
     $lnk = new PDO(
         "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
@@ -77,7 +77,7 @@
     }
 ?>
 
-<p><a href="/cadastro_material.php">Cadastrar Novo Material</a></p>
-<p><a href="/dashboard.php">Voltar</a></p>
-<p><a href="/inicio.php">Sair</a></p>
-<?php include '/footer.php'; ?>
+<p><a href="cadastro_material.php">Cadastrar Novo Material</a></p>
+<p><a href="dashboard.php">Voltar</a></p>
+<p><a href="inicio.php">Sair</a></p>
+<?php include 'footer.php'; ?>
