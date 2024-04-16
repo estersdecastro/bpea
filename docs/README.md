@@ -2,6 +2,8 @@
 
 Este repositório contém A Estrutura e interface que compõem uma sistema para interação com o banco de dados, para criar um banco de dados relacional voltado para um sistema de gerenciamento acadêmico de Produtos Educacionais Especiais do Acessar (PEA) de apoio e acessibilidade para pessoas com Deficiência no Ensino Superior da Universidade Federal do Pará (UFPA) e Universidade Federal Rural da Amazônia (UFRA).
 
+Site: <a href="https://webapp-bdufpa.azurewebsites.net/">https://webapp-bdufpa.azurewebsites.net/</a>
+
 ## Estrutura do Banco de Dados
 - **Usuario:** Armazena informações gerais sobre usuários, como estudantes, docentes, colaboradores, técnicos e administrativos.
 - **Usuario_Discente, Usuario_Docente, Usuario_Colaborador, Usuario_TAE, Usuario_TecAccesibilidade:** Tabelas específicas para cada tipo de usuário, mantendo detalhes relacionados a cada categoria.
