@@ -1,7 +1,7 @@
 <?php 
 ob_start(); 
-require_once('config.php');
-require_once("header.php");
+require_once('/config.php');
+require_once("/header.php");
 
 $message = "";
 
@@ -29,9 +29,9 @@ if (isset($_SESSION['error'])) {
 
 
 <div class="form-group row">
-    <a href="signup.php">Não tem Login? Cadastre-se</a>
+    <a href="/signup.php">Não tem Login? Cadastre-se</a>
 </div>
 
 </div>
 
-<?php require_once("footer.php"); ?>
+<?php require_once("/footer.php"); ?>
