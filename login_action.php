@@ -1,5 +1,5 @@
 <?php 
-require_once( 'config.php');
+require_once( '/config.php');
 
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $senha = filter_input(INPUT_POST, 'password');
@@ -7,7 +7,7 @@ $senha = filter_input(INPUT_POST, 'password');
 
 if (!$email || !$senha) {
     $_SESSION['error'] = 'O email e a senha devem ser preenchidos';
-    header("Location: login.php");
+    header("Location: /login.php");
     exit();
 }
 
@@ -25,11 +25,11 @@ if ($stmtUser->rowCount() > 0) {
         exit();
     } else {
         $_SESSION['error'] = 'Senha incorreta';
-        header("Location: login.php");
+        header("Location: ./login.php");
         exit();
     }
 } else {
     $_SESSION['error'] = 'Usuário não encontrado';
-    header("Location: login.php");
+    header("Location: ./login.php");
     exit();
 }
