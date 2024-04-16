@@ -1,7 +1,7 @@
 <?php
 session_start();  ?>
 
-<?php require_once('/header.php') ?>
+<?php require_once('header.php') ?>
 
     <h1>Banco De Dados UFPA</h1>
     <br>
