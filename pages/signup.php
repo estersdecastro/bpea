@@ -1,5 +1,5 @@
-<?php require_once("config.php"); ?>
-<?php require_once(__DIR__ . '/header.php'); ?>
+<?php require_once("/back/config.php"); ?>
+<?php require_once(__DIR__ . '/styles/header.php'); ?>
 
 <h1>Cadastro</h1>
 
@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="form-group row">
-        <form action="signup_action.php" method="post">
+        <form action="/back/signup_action.php" method="post">
 
             <div class="col-xs-1-12">
                 <label for="name">Nome</label>
@@ -28,7 +28,7 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-<?php require ('signup_body.php')?>
+<?php require ('/pages/signup_body.php')?>
 <script>
     $(document).ready(function () {
         $('#pcd').change((event) => {
@@ -75,4 +75,4 @@
     });
 </script>
 
-<?php require_once(__DIR__ . '/footer.php'); ?>
+<?php require_once(__DIR__ . '/styles/footer.php'); ?>
