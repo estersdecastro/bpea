@@ -1,7 +1,7 @@
 <?php 
 ob_start(); 
-require_once('/back/config.php');
-require_once("/styles/header.php");
+require_once('config.php');
+require_once("header.php");
 
 $message = "";
 
@@ -19,7 +19,7 @@ if (isset($_SESSION['error'])) {
 <?php endif; ?>
 
 
-<form action="/back/login_action.php" method="post">
+<form action="login_action.php" method="post">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
     <label for="password">Senha:</label>
@@ -29,9 +29,9 @@ if (isset($_SESSION['error'])) {
 
 
 <div class="form-group row">
-    <a href="/pages/signup.php">Não tem Login? Cadastre-se</a>
+    <a href="signup.php">Não tem Login? Cadastre-se</a>
 </div>
 
 </div>
 
-<?php require_once("/styles/footer.php"); ?>
+<?php require_once("footer.php"); ?>

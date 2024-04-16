@@ -3,7 +3,7 @@ session_start();
 
 // Verifica se o usuário está logado
 //if (!isset($_SESSION['user_id'])) {
-//    header("Location: /pages/inicio.php");
+//    header("Location: inicio.php");
 //    exit();
 //}
 
@@ -12,7 +12,7 @@ session_start();
 
 ?>
 
-<?php require_once(__DIR__ . '/styles/header.php'); ?>
+<?php require_once(__DIR__ . 'header.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -22,8 +22,8 @@ session_start();
 <body>
 
     <div clas="container">
-    <p><a href="/pages/pesquisa.php">Pesquisar</a></p>
-    <p><a href="/pages/cadastro_material.php">Cadastrar</a></p>
+    <p><a href="pesquisa.php">Pesquisar</a></p>
+    <p><a href="cadastro_material.php">Cadastrar</a></p>
     </div>
       
     <!-- Formulário de pesquisa 
@@ -44,8 +44,8 @@ session_start();
     }
     ?>
 
-  <p><a href="/pages/inicio.php">Sair</a></p>
+  <p><a href="inicio.php">Sair</a></p>
 </body>
 </html>
 
-<?php require_once(__DIR__ . '/styles/footer.php'); ?>
+<?php require_once(__DIR__ . 'footer.php'); ?>

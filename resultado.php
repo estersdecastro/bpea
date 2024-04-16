@@ -2,7 +2,7 @@
     error_reporting(E_ERROR | E_PARSE);
 
     // Inclua o arquivo de configuração
-    require '/back/config.php';
+    require 'config.php';
 
     $lnk = new PDO(
         "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
@@ -23,7 +23,7 @@
     $data = $qry->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?php include '/styles/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1 style="
     text-align: center;
@@ -77,7 +77,7 @@
     }
 ?>
 
-<p><a href="/pages/cadastro_material.php">Cadastrar Novo Material</a></p>
-<p><a href="/pages/dashboard.php">Voltar</a></p>
-<p><a href="/pages/inicio.php">Sair</a></p>
-<?php include '/styles/footer.php'; ?>
+<p><a href="cadastro_material.php">Cadastrar Novo Material</a></p>
+<p><a href="dashboard.php">Voltar</a></p>
+<p><a href="inicio.php">Sair</a></p>
+<?php include 'footer.php'; ?>
