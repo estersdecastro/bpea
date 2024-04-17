@@ -1,5 +1,5 @@
-<?php require_once("/config.php"); ?>
-<?php require_once(__DIR__ . '/header.php'); ?>
+<?php require_once("config.php"); ?>
+<?php require_once(__DIR__ . 'header.php'); ?>
 
 <h1>Cadastro</h1>
 
@@ -28,7 +28,7 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-<?php require ('/signup_body.php')?>
+<?php require ('signup_body.php')?>
 <script>
     $(document).ready(function () {
         $('#pcd').change((event) => {
@@ -75,4 +75,4 @@
     });
 </script>
 
-<?php require_once(__DIR__ . '/footer.php'); ?>
+<?php require_once(__DIR__ . 'footer.php'); ?>

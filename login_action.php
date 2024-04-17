@@ -1,5 +1,5 @@
 <?php 
-require_once( '/config.php');
+require_once( 'config.php');
 
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $senha = filter_input(INPUT_POST, 'password');
@@ -7,7 +7,7 @@ $senha = filter_input(INPUT_POST, 'password');
 
 if (!$email || !$senha) {
     $_SESSION['error'] = 'O email e a senha devem ser preenchidos';
-    header("Location: /login.php");
+    header("Location: login.php");
     exit();
 }
 

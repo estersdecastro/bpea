@@ -82,7 +82,7 @@
     </div>
 
     <div class="form-group row">
-        <a href="/login.php">Já tem conta? Faça login</a>
+        <a href="login.php">Já tem conta? Faça login</a>
     </div>
 
 </div>
