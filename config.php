@@ -1,20 +1,16 @@
 <?php
-session_start();
-$dbUrl = '';
+// PHP Data Objects(PDO) Sample Code:
+try {
+    $conn = new PDO("sqlsrv:server = tcp:bdufpa-server.database.windows.net,1433; Database = bdufpa", "bdufpa", "{your_password_here}");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
 
-$dbParts = parse_url($dbUrl);
-
-$dbData = new stdClass();
-$dbData->driver = getenv('DB_DRIVER');
-$dbData->host = getenv('DB_HOST');
-$dbData->port = getenv('DB_PORT');
-$dbData->dbname = getenv('DB_NAME');
-$dbData->user = getenv('DB_USER');
-$dbData->password = getenv('DB_PASSWORD');
-$dbData->options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
-$dbData->connection = new PDO($dbData->driver . ':host=' . $dbData->host . ';port=5432;dbname=' . $dbData->dbname, $dbData->user, $dbData->password, $dbData->options);
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "bdufpa", "pwd" => "Mestreemen$ino2024", "Database" => "bdufpa", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:bdufpa-server.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 ?>
