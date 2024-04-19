@@ -1,17 +1,41 @@
 <?php
-session_start();
+// Informações de conexão
+$host = 'bdufpa-server.database.windows.net';
+$port = 1433;
+$dbname = 'bdufpa';
+$user = 'bdufpa';
+$password = 'Mestreemen$ino2024'; // Substitua pela sua senha
 
-$dbData = new stdClass();
-$dbData->host = 'bdufpa-server.database.windows.net"'; // Substitua pelo host do seu banco de dados
-$dbData->driver = 'pgsql'; // Substitua pelo driver do seu banco de dados
-$dbData->port = '1433'; // Substitua pela porta do seu banco de dados
-$dbData->dbname = 'bdufpa'; // Substitua pelo nome do seu banco de dados
-$dbData->user = 'bdufpa'; // Substitua pelo usuário do seu banco de dados
-$dbData->password = 'Mestreemen$ino2024'; // Substitua pela senha do seu banco de dados
-$dbData->options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
-$dbData->connection = new PDO($dbData->driver . ':host=' . $dbData->host . ';port=' . $dbData->port . ';dbname=' . $dbData->dbname, $dbData->user, $dbData->password, $dbData->options);
+// Criação da string de conexão
+$dsn = "sqlsrv:server=tcp:$host,$port;Database=$dbname";
+
+try {
+    // Conexão com o banco de dados usando PDO
+    $conn = new PDO($dsn, $user, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    // Tratamento de erro
+    echo "Erro ao conectar ao SQL Server: " . $e->getMessage();
+    exit;
+}
+
+// Informações de conexão para a extensão SQL Server
+$connectionInfo = array(
+    "UID" => $user,
+    "pwd" => $password,
+    "Database" => $dbname,
+    "LoginTimeout" => 120,
+    "Encrypt" => 1,
+    "TrustServerCertificate" => 0
+);
+$serverName = "tcp:$host,$port";
+
+// Conexão com o banco de dados usando a extensão SQL Server
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+
+if ($conn === false) {
+    // Tratamento de erro
+    echo "Erro ao conectar ao SQL Server: ";
+    die(print_r(sqlsrv_errors(), true));
+}
 ?>
