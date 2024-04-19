@@ -1,6 +1,6 @@
 <?php 
 ob_start(); // Inicia o buffer de saída
-require_once("config.php");
+include 'config.php';
 
 $name = filter_input(INPUT_POST, 'name');
 $social_name = filter_input(INPUT_POST, 'social_name');

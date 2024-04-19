@@ -1,5 +1,5 @@
 <?php
-    require_once '.config.php';
+    include 'config.php';
     $sql = $dbData->connection->query("SELECT * FROM \"Categorias\"");
     $categorias = [];
     if ($sql->rowCount() > 0) $categorias = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -21,7 +21,7 @@
     }
 ?>
 
-<?php require_once('header.php'); ?>
+<?php include 'header.php'; ?>
     <h2>Formulário de Cadastro</h2><br>
 
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
@@ -125,8 +125,11 @@
         } else {
             $local = "";
         }
-        require_once 'config.php';
+        ?>
+        
+        <?php include 'config.php'; ?>
 
+        <?php 
         // Conecte-se ao banco de dados
         $conexao = new PDO(
             "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",

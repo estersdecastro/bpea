@@ -1,5 +1,5 @@
 <?php 
-require_once( 'config.php');
+include 'config.php';
 
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $senha = filter_input(INPUT_POST, 'password');

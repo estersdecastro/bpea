@@ -12,7 +12,7 @@ session_start();
 
 ?>
 
-<?php require_once(__DIR__ . 'header.php'); ?>
+<?php include 'header.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -48,4 +48,4 @@ session_start();
 </body>
 </html>
 
-<?php require_once(__DIR__ . 'footer.php'); ?>
+<?php include 'footer.php'; ?>

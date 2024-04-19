@@ -1,7 +1,8 @@
 <?php 
 ob_start(); 
-require_once('config.php');
-require_once("header.php");
+
+include 'config.php';
+include 'header.php';
 
 $message = "";
 
@@ -9,7 +10,6 @@ if (isset($_SESSION['error'])) {
     $message = $_SESSION["error"];
     unset($_SESSION['error']);
 }
-
 ?>
 
 <h1>Login</h1> 
@@ -34,4 +34,4 @@ if (isset($_SESSION['error'])) {
 
 </div>
 
-<?php require_once("/footer.php"); ?>
+<?php  include 'footer.php'; ?>

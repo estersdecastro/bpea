@@ -1,5 +1,5 @@
-<?php require_once("config.php"); ?>
-<?php require_once(__DIR__ . 'header.php'); ?>
+<?php include 'config.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Cadastro</h1>
 
@@ -75,4 +75,4 @@
     });
 </script>
 
-<?php require_once(__DIR__ . 'footer.php'); ?>
+<?php include 'footer.php' ?>
