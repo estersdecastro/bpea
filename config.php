@@ -13,6 +13,9 @@ try {
     // Conexão com o banco de dados usando PDO
     $conn = new PDO($dsn, $user, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $dbData = new stdClass();
+    $dbData->connection = $conn;
 } catch (PDOException $e) {
     // Tratamento de erro
     echo "Erro ao conectar ao SQL Server: " . $e->getMessage();
@@ -24,18 +27,20 @@ $connectionInfo = array(
     "UID" => $user,
     "pwd" => $password,
     "Database" => $dbname,
-    "LoginTimeout" => 120,
+    "LoginTimeout" => 1000,
     "Encrypt" => 1,
     "TrustServerCertificate" => 0
 );
 $serverName = "tcp:$host,$port";
 
 // Conexão com o banco de dados usando a extensão SQL Server
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+$sqlsrv_conn = sqlsrv_connect($serverName, $connectionInfo);
 
-if ($conn === false) {
+if ($sqlsrv_conn === false) {
     // Tratamento de erro
     echo "Erro ao conectar ao SQL Server: ";
     die(print_r(sqlsrv_errors(), true));
 }
+//ok
 ?>
+
