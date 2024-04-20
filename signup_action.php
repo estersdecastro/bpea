@@ -6,13 +6,13 @@ $name = filter_input(INPUT_POST, 'name');
 $social_name = filter_input(INPUT_POST, 'social_name');
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $cellphone = filter_input(INPUT_POST, 'cellphone');
-$pcd = isset($_POST ['pcd']) && $_POST[$pcd] === 'on' ?  1 : 0
-//$pcd = filter_input(INPUT_POST, 'pcd');
+$pcd = isset($_POST['pcd']) && $_POST['pcd'] === 'on' ?  1 : 0; // Corrigido
 $pcd_type = filter_input(INPUT_POST, 'pcd_type');
 $campus = filter_input(INPUT_POST, 'campus');
 $instituto = filter_input(INPUT_POST, 'instituto');
 $password = filter_input(INPUT_POST, 'password');
 $type = filter_input(INPUT_POST, 'type');
+
 
 
 if (!$name)
@@ -196,7 +196,7 @@ if ($type == "tec_tcc")
     $stmtTae->bindValue(':siape', $siape);
     $stmtTae->bindValue(':nucleo', $nucleo);
     $stmtTae->bindValue(':id_usuario', $dbData->connection->lastInsertId());
-    $stmtTae->ex ecute();
+    $stmtTae->execute();
 }
 
 ob_end_flush(); // Limpa o buffer de saída e desliga o armazenamento em buffer de saída
