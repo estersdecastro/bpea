@@ -1,4 +1,23 @@
+<div class="container">
 
+    <div class="form-group row">
+        <form action="signup_action.php" method="post">
+
+            <div class="col-xs-1-12">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <div class="col-xs-1-12">
+                <label for="social_name">Nome Social</label>
+                <input type="text" class="form-control" id="social_name" name="social_name" required>
+            </div>
+
+            <div class="col-xs-1-12">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            
 <div class="col-xs-1-12">
                 <label for="cellphone">Celular</label>
                 <input type="text" class="form-control" id="cellphone" name="cellphone" required>

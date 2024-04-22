@@ -1,18 +1,16 @@
-<?php
-    error_reporting(E_ERROR | E_PARSE);
-
-    // Inclua o arquivo de configuração
-    require 'config.php';
-
+<?php include 'header.php'; ?>
+<?php include 'config.php'; ?>
+<?php error_reporting(E_ERROR | E_PARSE); ?>
+<?php 
     $lnk = new PDO(
         "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
         $dbData->user,
-        $dbData->password
-    );
+        $dbData->password );
+?>
 
+<?php
     $sql = 'SELECT * FROM "PEA" ORDER BY titulo ASC';
-    $titulo = $_GET
-      ['titulo'];
+    $titulo = $_GET['titulo'];
 
     if(!is_null($titulo) && !empty($titulo)) 
         $sql = "SELECT * FROM \"PEA\" WHERE titulo LIKE '".$titulo."' ORDER BY titulo ASC";
@@ -22,8 +20,6 @@
     $qry->execute();
     $data = $qry->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-<?php include 'header.php'; ?>
 
 <h1 style="
     text-align: center;

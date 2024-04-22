@@ -1,18 +1,15 @@
-<?php
-    error_reporting(E_ERROR | E_PARSE);
-
-    // Inclua o arquivo de configuração
-    require 'config.php';
-
-    $lnk = new PDO(
+<?php include 'header.php'; ?>
+<?php include 'config.php'; ?>
+<?php error_reporting(E_ERROR | E_PARSE); ?>
+<?php $lnk = new PDO(
         "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
         $dbData->user,
-        $dbData->password
-    );
+        $dbData->password );
+?>
 
-    $titulo = $_GET['titulo'];
-
+<?php
     $sql = 'SELECT * FROM "PEA" ORDER BY titulo ASC';
+    $titulo = $_GET['titulo'];
 
     if(!is_null($titulo) && !empty($titulo)) 
         $sql = "SELECT * FROM \"PEA\" WHERE titulo LIKE '".$titulo."' ORDER BY titulo ASC";
@@ -22,8 +19,6 @@
     $qry->execute();
     $data = $qry->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-<?php include 'header.php'; ?>
 
 <h1 style="
     text-align: center;
@@ -35,8 +30,8 @@
 <?php
     if(!is_null($titulo) && !empty($titulo)) {
         if($count > 0) {
-            echo 'Encontrado registros com o título ' . $titulo;
-?>   
+            echo 'Encontrado registros com o título ' . $titulo;?>   
+
             <table class="table table-striped">
                 <thead>
                   <th>Título</th>
@@ -72,11 +67,9 @@
 
 <?php }  
     else {
-            echo 'Nenhum registro foi encontrado com o título ' . $titulo;
-        }
-    }
-?>
+            echo 'Nenhum registro foi encontrado com o título ' . $titulo; }}?>
 
+<br>
 <p><a href="cadastro_material.php">Cadastrar Novo Material</a></p>
 <p><a href="dashboard.php">Voltar</a></p>
 <p><a href="inicio.php">Sair</a></p>
