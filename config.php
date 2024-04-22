@@ -1,10 +1,7 @@
 
 <?php
-<<<<<<< Updated upstream
-=======
 use function sqlsrv_errors;
 
->>>>>>> Stashed changes
 // Informações de conexão
 $host = 'bdufpa-server.database.windows.net';
 $port = 1433;
