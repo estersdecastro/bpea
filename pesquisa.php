@@ -1,5 +1,6 @@
-<?php include 'header.php'; ?>
 <?php include 'config.php'; ?>
+<?php include 'header.php'; ?>
+
 <?php error_reporting(E_ERROR | E_PARSE); ?>
 
 <?php

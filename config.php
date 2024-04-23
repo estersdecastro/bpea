@@ -1,22 +1,19 @@
 <?php
-    // Informações de conexão
     $host = 'pgsql.postgres.database.azure.com';
     $port = 5432;
-    $dbname = 'bdufpa';
+    $dbname = 'dufpa';
     $user = 'bdufpa';
     $password = 'Mestreemen$ino2024'; 
-
-    // String de conexão para PostgreSQL
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password";
 ?>
 
 <?php
     try {
-        // Conexão com o banco de dados usando PDO
         $conn = new PDO($dsn);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
+        echo "Erro ao conectar ao PostgreSQL: " . $e->getMessage();
+        die();
     }
 ?>
 
@@ -38,12 +35,4 @@
 
     // Conexão com o banco de dados usando a extensão PostgreSQL
     $pgsql_conn = pg_connect(trim($connectionString));
-?>
-
-<?php
-    if ($pgsql_conn === false) {
-        // Tratamento de erro
-        echo "Erro ao conectar ao PostgreSQL: ";
-        die(pg_last_error());
-    }
 ?>

@@ -1,5 +1,5 @@
-<?php include 'header.php' ?>
-<?php include 'config.php' ?>
+<?php include 'config.php'; ?>
+<?php include 'header.php'; ?>
 
 <?php
     $sql = $dbData->connection->query("SELECT * FROM \"Categorias\"");
