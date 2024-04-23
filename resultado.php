@@ -1,11 +1,6 @@
 <?php include 'header.php'; ?>
 <?php include 'config.php'; ?>
 <?php error_reporting(E_ERROR | E_PARSE); ?>
-<?php $lnk = new PDO(
-        "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
-        $dbData->user,
-        $dbData->password );
-?>
 
 <?php
     $sql = 'SELECT * FROM "PEA" ORDER BY titulo ASC';
@@ -72,5 +67,5 @@
 <br>
 <p><a href="cadastro_material.php">Cadastrar Novo Material</a></p>
 <p><a href="dashboard.php">Voltar</a></p>
-<p><a href="inicio.php">Sair</a></p>
+
 <?php include 'footer.php'; ?>  

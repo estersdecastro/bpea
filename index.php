@@ -1,10 +1,15 @@
-<?php session_start();  ?>
+<?php include 'header.php'; ?>
 
-<?php include 'header.php' ?>
+      <title>Dashboard</title>
+  </head>
+  <body>
 
-    <h1>Nome do BD</h1><br>
-    <p><a href="signup.php">Cadastre-se</a></p>
-    <p><a href="login.php">Faça Login</a></p>
+      <div clas="container">
+      <p><a href="pesquisa.php">Pesquisar</a></p>
+      <p><a href="cadastro_material.php">Cadastrar</a></p>
+      </div>
 
-<?php include 'footer.php'?>
 
+  <p><a href="inicio.php">Sair</a></p>
+
+<?php include 'footer.php'; ?>
