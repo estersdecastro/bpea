@@ -1,6 +1,7 @@
-<?php include 'header.php'; ?>
-<?php include 'config.php'; ?>
+<?php include 'styles/header.php'; ?>
+<?php include 'conect/config.php'; ?>
 <?php error_reporting(E_ERROR | E_PARSE); ?>
+
 <?php 
     $lnk = new PDO(
         "{$dbData->driver}:host={$dbData->host};port={$dbData->port};dbname={$dbData->dbname}",
@@ -63,7 +64,7 @@
                 <?php endforeach; ?>
               </tbody>
           </table>
-          <a href="resultado.php?titulo=<?= urlencode($titulo) ?>">Ver resultados completos</a>     
+          <a href="pages/resultado.php?titulo=<?= urlencode($titulo) ?>">Ver resultados completos</a>     
 
 <?php }  
     else {
@@ -73,7 +74,7 @@
 ?>
 
 <br>
-<p><a href="cadastro_material.php">Cadastrar Novo Material</a></p>
-<p><a href="dashboard.php">Voltar</a></p>
-<p><a href="inicio.php">Sair</a></p>
-<?php include 'footer.php'; ?>
+<p><a href="pages/cadastro_material.php">Cadastrar Novo Material</a></p>
+<p><a href="pages/dashboard.php">Voltar</a></p>
+<p><a href="pages/inicio.php">Sair</a></p>
+<?php include 'styles/footer.php'; ?>

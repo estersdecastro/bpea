@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="form-group row">
-        <form action="signup_action.php" method="post">
+        <form action="function/signup_action.php" method="post">
 
             <div class="col-xs-1-12">
                 <label for="name">Nome</label>
@@ -101,7 +101,7 @@
     </div>
 
     <div class="form-group row">
-        <a href="login.php">Já tem conta? Faça login</a>
+        <a href="pages/login.php">Já tem conta? Faça login</a>
     </div>
 
 </div>

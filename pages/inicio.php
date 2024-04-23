@@ -7,4 +7,3 @@
     <p><a href="pages/login.php">Faça Login</a></p>
 
 <?php include 'styles/footer.php'?>
-

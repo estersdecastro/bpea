@@ -1,5 +1,5 @@
-<?php include 'config.php'; ?>
-<?php include 'header.php'; ?>
+<?php include 'conect/config.php'; ?>
+<?php include 'styles/header.php'; ?>
 
 <h1>Cadastro</h1>
 
@@ -11,7 +11,7 @@
     <?php endif; 
 ?>
 
-<?php require ('signup_body.php')?>
+<?php require ('function/signup_body.php')?>
 
 <script>
     $(document).ready(function () {
@@ -59,4 +59,4 @@
     });
 </script>
 
-<?php include 'footer.php' ?>
+<?php include 'styles/footer.php' ?>

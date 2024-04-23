@@ -1,6 +1,6 @@
 <?php include  ob_start();  ?>
-<?php include 'config.php'; ?>
-<?php include 'header.php'; ?>
+<?php include 'conect/config.php'; ?>
+<?php include 'styles/header.php'; ?>
 
 <?php
     $message = "";
@@ -18,7 +18,7 @@
     <?php endif; ?>
 
 
-<form action="login_action.php" method="post">
+<form action="function/login_action.php" method="post">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
     <label for="password">Senha:</label>
@@ -27,9 +27,9 @@
 </form>
 
 <div class="form-group row">
-    <a href="/signup.php">Não tem Login? Cadastre-se</a>
+    <a href="/pages/signup.php">Não tem Login? Cadastre-se</a>
 </div>
 
 </div>
 
-<?php  include 'footer.php'; ?>
+<?php  include 'styles/footer.php'; ?>

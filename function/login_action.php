@@ -1,4 +1,4 @@
-<?php include 'config.php'; ?>
+<?php include 'conect/config.php'; ?>
 
 <?php 
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -6,7 +6,7 @@
 
     if (!$email || !$senha) {
         $_SESSION['error'] = 'O email e a senha devem ser preenchidos';
-        header("Location: login.php");
+        header("Location: pages/login.php");
         exit();
     }
 ?>
@@ -22,16 +22,16 @@
         if (password_verify($senha, $user['senha'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['success'] = 'Login efetuado com sucesso';
-            header("Location: ./dashboard.php");
+            header("Location: ./pages/dashboard.php");
             exit();
         } else {
             $_SESSION['error'] = 'Senha incorreta';
-            header("Location: ./login.php");
+            header("Location: ./pages/login.php");
             exit();
         }
     } else {
         $_SESSION['error'] = 'Usuário não encontrado';
-        header("Location: ./login.php");
+        header("Location: ./pages/login.php");
         exit();
     }
 ?>
