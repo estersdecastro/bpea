@@ -96,6 +96,6 @@
   <br>
   <p><a href="pesquisa.php">Pesquisar</a></p>
   <p><a href="dashboard.php">Voltar</a></p>
-
+  <p><a href="inicio.php">Sair</a></p>
 
 <?php include 'footer.php'; ?>
