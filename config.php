@@ -15,13 +15,8 @@
         // Conexão com o banco de dados usando PDO
         $conn = new PDO($dsn);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $dbData = new stdClass();
-        $dbData->connection = $conn;
     } catch (PDOException $e) {
-        // Tratamento de erro
-        echo "Erro ao conectar ao PostgreSQL: " . $e->getMessage();
-        exit;
+        echo 'Connection failed: ' . $e->getMessage();
     }
 ?>
 
