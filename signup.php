@@ -1,5 +1,5 @@
-<?php include 'conect/config.php'; ?>
-<?php include 'styles/header.php'; ?>
+<?php include 'config.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Cadastro</h1>
 
@@ -59,4 +59,4 @@
     });
 </script>
 
-<?php include 'styles/footer.php' ?>
+<?php include 'footer.php' ?>

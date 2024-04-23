@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<?php include 'conect/config.php';?>
+<?php include 'config.php';?>
 
 <?php 
 
@@ -17,62 +17,62 @@
     if (!$name)
     {
         $_SESSION['error'] = 'O nome deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$social_name)
     {
         $_SESSION['error'] = 'O nome social deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$email)
     {
         $_SESSION['error'] = 'O email deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$cellphone)
     {
         $_SESSION['error'] = 'O celular deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$campus)
     {
         $_SESSION['error'] = 'O campus deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$instituto)
     {
         $_SESSION['error'] = 'O instituto deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$password)
     {
         $_SESSION['error'] = 'A senha deve ser preenchida';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if (!$type)
     {
         $_SESSION['error'] = 'O tipo deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if ($pcd && !$pcd_type) {
         $_SESSION['error'] = 'O tipo de PCD deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
@@ -88,21 +88,21 @@
 <?php
     if ($type != "colaborador" && $type != "discente" && $type != "docente" && $type != "tae" && $type != "tec_acc") {
         $_SESSION['error'] = 'Tipo inválido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if ($type == "colaborador" && (!$cpf))
     {
         $_SESSION['error'] = 'O CPF deve ser preenchido';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
     if ($type == "discente" && (!$matricula || !$course))
     {
         $_SESSION['error'] = 'A matrícula e o curso devem ser preenchidos';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
@@ -114,7 +114,7 @@
     if (($type == "tae" || $type == "tec_acc") && (!$siape || !$nucleo))
     {
         $_SESSION['error'] = 'O CPF e a matrícula devem ser preenchidos';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit();
     }
 
@@ -125,7 +125,7 @@
 
     if ($stmtUser->rowCount() > 0) {
         $_SESSION['error'] = 'E-mail já cadastrado';
-        header("Location: pages/signup.php");
+        header("Location: signup.php");
         exit;
     }
 
@@ -146,7 +146,7 @@
 
 <?php 
     $_SESSION['success'] = 'Cadastro realizado com sucesso!';
-    header('Location: /pages/inicio.php');
+    header('Location: /inicio.php');
     exit();
 ?>
 

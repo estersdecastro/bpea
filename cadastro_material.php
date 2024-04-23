@@ -1,5 +1,5 @@
-<?php include 'styles/header.php' ?>
-<?php include 'conect/config.php' ?>
+<?php include 'header.php' ?>
+<?php include 'config.php' ?>
 
 <?php
     $sql = $dbData->connection->query("SELECT * FROM \"Categorias\"");
@@ -34,7 +34,7 @@
     }
 ?>
 
-<?php include "function/cadastro_material_form.php" ?>
+<?php include "/cadastro_material_form.php" ?>
 
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -94,8 +94,8 @@
     
   <br>
   <br>
-  <p><a href="pages/pesquisa.php">Pesquisar</a></p>
-  <p><a href="pages/dashboard.php">Voltar</a></p>
-  <p><a href="pages/inicio.php">Sair</a></p>
+  <p><a href="pesquisa.php">Pesquisar</a></p>
+  <p><a href="dashboard.php">Voltar</a></p>
+  <p><a href="inicio.php">Sair</a></p>
 
-<?php include 'styles/footer.php'; ?>
+<?php include 'footer.php'; ?>
