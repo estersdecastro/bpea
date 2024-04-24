@@ -3,7 +3,7 @@ include 'config.php';
 include 'header.php'; 
 
 // Coleta de dados do banco de dados
-$sql = $dbData->connection->query("SELECT * FROM \"Categorias\"");
+$sql = $conn->query("SELECT * FROM \"Categorias\"");
 $categorias = [];
 if ($sql->rowCount() > 0) $categorias = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO \"PEA\" (\"titulo\", \"keyword\", \"ano\", \"formato\", \"curso\", \"disciplina\", \"tipo\", \"tipo_de_deficiencia\", \"id_categoria\", \"local\", \"uso\", \"fonte_original\", \"cid_pcd\", \"descricao\") 
             VALUES (:titulo, :keyword, :ano, :formato, :curso, :disciplina, :tipo_de_deficiencia, :id_categoria, :local, :uso, :fonte_original, :cid_pcd, :descricao)";
 
-    $stmt = $conexao->prepare($sql);
+    $stmt = $conn->prepare($sql);
     $stmt->bindValue(':titulo', $titulo);
     $stmt->bindValue(':keyword', $keyword);
     $stmt->bindValue(':ano', $ano);
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Novo registro criado com sucesso";
 }
 
-include "/cadastro_material_form.php";
+include "./cadastro_material_form.php";
 
 echo "<br><br>";
 echo "<p><a href='pesquisa.php'>Pesquisar</a></p>";

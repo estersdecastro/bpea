@@ -1,8 +1,8 @@
 <?php
     // Configuração de conexão
-    $host = 'pgsql.postgres.database.azure.com';
+    $host = 'bdufpa-pgsql.postgres.database.azure.com';
     $port = 5432;
-    $dbname = 'dufpa';
+    $dbname = 'postgres';
     $user = 'bdufpa';
     $password = 'Mestreemen$ino2024'; 
 

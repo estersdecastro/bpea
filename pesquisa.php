@@ -11,7 +11,7 @@ if(!is_null($titulo) && !empty($titulo)) {
     $sql = "SELECT * FROM \"PEA\" WHERE titulo LIKE '".$titulo."' ORDER BY titulo ASC";
 }
 
-$qry = $lnk->query($sql);
+$qry = $conn->query($sql);
 $qry->execute();
 $data = $qry->fetchAll(PDO::FETCH_ASSOC);
 $count = $qry->rowCount();
