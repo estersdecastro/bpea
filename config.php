@@ -4,7 +4,7 @@
     $port = 5432;
     $dbname = 'dufpa';
     $user = 'bdufpa';
-    $password = 'senha'; 
+    $password = 'Mestreemen$ino2024'; 
 
     // Informações de conexão para a extensão PostgreSQL
     $connectionInfo = array(
