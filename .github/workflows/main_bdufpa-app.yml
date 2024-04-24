@@ -33,7 +33,6 @@ jobs:
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
-        #zip -r release.zip styles conect function pages 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -62,9 +61,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_82C20A29DD37491687C15AD7197432F3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8819DDE2167044E1A369DC09E6E3026E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_15C72F8EEECB4B7690E30A39446EAA61 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B8A795E859F74B8BA5F27ED7E3B36B90 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_64CEDA15C7A84423A64BF8DC9C93634C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C5B5A900A07E457E8D6C515A2243F1D9 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
