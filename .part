@@ -1,0 +1,3 @@
+git remote -v
+git remote add origin https://github.com/estersdecastro/bdufpa.git
+git remote set-url origin https://github.com/estersdecastro/bdufpa.git
