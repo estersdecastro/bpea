@@ -1,66 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Banco de Dados PEA - UFPA
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este repositório contém A Estrutura e interface que compõem uma sistema para interação com o banco de dados, para criar um banco de dados relacional voltado para um sistema de gerenciamento acadêmico de Produtos Educacionais Especiais do Acessar (PEA) de apoio e acessibilidade para pessoas com Deficiência no Ensino Superior da Universidade Federal do Pará (UFPA) e Universidade Federal Rural da Amazônia (UFRA).
 
-## About Laravel
+Site: <a href="https://bdufpa-app.azurewebsites.net/" target="blank">https://webapp-bdufpa.azurewebsites.net/</a>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Estrutura do Banco de Dados
+- **Usuario:** Armazena informações gerais sobre usuários, como estudantes, docentes, colaboradores, técnicos e administrativos.
+- **Usuario_Discente, Usuario_Docente, Usuario_Colaborador, Usuario_TAE, Usuario_TecAccesibilidade:** Tabelas específicas para cada tipo de usuário, mantendo detalhes relacionados a cada categoria.
+- **Categorias:** Define as categorias existentes no sistema.
+- **PEA (Projeto de Ensino e Aprendizagem):** Registra projetos educacionais com detalhes como título, formato, tipo, categoria, local, uso, fonte original e comentários.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Implementação Web
+Os arquivos PHP neste repositório complementam a experiência do usuário, oferecendo uma interface web para interagir com o banco de dados. As funcionalidades incluem:
+- Cadastro e gerenciamento de usuários de diferentes categorias.
+- Registro e visualização de projetos de ensino e aprendizagem.
+- Integração com categorias para classificação dos projetos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requisitos
+- PHP 7.4 ou superior
+- PostgreSQL 12.0 ou superior
+- Servidor web (como Apache ou Nginx)
 
-## Learning Laravel
+## Instruções de Uso
+1. Importe o código SQL fornecido para criar o banco de dados e tabelas.
+2. Configure a conexão do banco de dados no arquivo PHP conforme necessário.
+3. Implante os arquivos PHP em um servidor web compatível com PHP.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Contribuições
+Este projeto é parte de um trabalho acadêmico. Contribuições são bem-vindas para melhorar a interface web, adicionar funcionalidades ou otimizar a estrutura do banco de dados.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Licença
+Este projeto é distribuído sob a [Licença MIT](LICENSE).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Observação:** Certifique-se de proteger informações sensíveis, como credenciais de banco de dados, ao implantar em um ambiente de produção.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
