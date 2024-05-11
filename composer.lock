@@ -19,7 +19,7 @@
                 "url": "https://api.github.com/repos/AnourValar/eloquent-serialize/zipball/6e91093c10940859c4b0549b6a90f18d8db45998",
                 "reference": "6e91093c10940859c4b0549b6a90f18d8db45998",
                 "shasum": ""
-            },
+            },            
             "require": {
                 "laravel/framework": "^8.0|^9.0|^10.0|^11.0",
                 "php": "^7.4|^8.0"
@@ -10234,3 +10234,4 @@
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
 }
+
