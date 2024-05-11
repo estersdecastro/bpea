@@ -20,14 +20,11 @@ return new class extends Migration
             $table->integer('category_id')->nullable();
             $table->integer('year')->nullable();
             $table->string('format');
-            $table->string('course')->nullable();
-            $table->string('discipline')->nullable();
             $table->string('keyword')->nullable();
             $table->string('type');
             $table->string('location')->nullable();
             $table->string('use');
             $table->string('original_source');
-            $table->string('cid_pcd')->nullable();
             $table->text('description');
 
 

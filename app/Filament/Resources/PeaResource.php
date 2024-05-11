@@ -48,10 +48,6 @@ class PeaResource extends Resource
                         'Outro' => 'Outro',
                     ])
                     ->required(),
-                Forms\Components\TextInput::make('course')
-                    ->label('Curso'),
-                Forms\Components\TextInput::make('discipline')
-                    ->label('Disciplina'),
                 Forms\Components\TextInput::make('keyword')
                     ->label('Palavra-chave'),
                 Forms\Components\Select::make('type')
@@ -78,8 +74,6 @@ class PeaResource extends Resource
                     ]),
                 Forms\Components\TextInput::make('original_source')
                     ->label('Fonte Original'),
-                Forms\Components\TextInput::make('cid_pcd')
-                    ->label('CID/PCD'),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição'),
             ]);
@@ -97,10 +91,6 @@ class PeaResource extends Resource
                     ->label('Ano'),
                 Tables\Columns\TextColumn::make('format')
                     ->label('Formato'),
-                Tables\Columns\TextColumn::make('course')
-                    ->label('Curso'),
-                Tables\Columns\TextColumn::make('discipline')
-                    ->label('Disciplina'),
                 Tables\Columns\TextColumn::make('keyword')
                     ->label('Palavra-chave'),
                 Tables\Columns\TextColumn::make('type')
@@ -109,8 +99,6 @@ class PeaResource extends Resource
                     ->label('Uso'),
                 Tables\Columns\TextColumn::make('original_source')
                     ->label('Fonte Original'),
-                Tables\Columns\TextColumn::make('cid_pcd')
-                    ->label('CID/PCD'),
                 Tables\Columns\TextColumn::make('description')
                     ->label('Descrição'),
             ])
@@ -121,7 +109,7 @@ class PeaResource extends Resource
                         \App\Models\Category::all()->pluck('name', 'id')->toArray()
                     ),
 
-                // Text input that filters in title, course, discipline, keyword, original_source, and cid_pcd columns
+                // Text input that filters in title, keyword, original_source, and columns
 
                 Tables\Filters\Filter::make('search')
                     ->form([
@@ -133,11 +121,8 @@ class PeaResource extends Resource
                             return;
                         }
                         $query->where('title', 'like', "%{$data["search"]}%")
-                            ->orWhere('course', 'like', "%{$data["search"]}%")
-                            ->orWhere('discipline', 'like', "%{$data["search"]}%")
                             ->orWhere('keyword', 'like', "%{$data["search"]}%")
-                            ->orWhere('original_source', 'like', "%{$data["search"]}%")
-                            ->orWhere('cid_pcd', 'like', "%{$data["search"]}%");
+                            ->orWhere('original_source', 'like', "%{$data["search"]}%");
                     })
 
                 ], layout: FiltersLayout::AboveContent)
