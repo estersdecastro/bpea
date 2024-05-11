@@ -31,7 +31,7 @@ class PeaResource extends Resource
                     ->label('Título')
                     ->required(),
                 Forms\Components\Select::make('category_id')
-                    ->label('Categoria')
+                    ->label('Àrea de Conhecimento')
                     ->options(
                         \App\Models\Category::all()->pluck('name', 'id')->toArray()
                     ),
@@ -86,7 +86,7 @@ class PeaResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título'),
                 Tables\Columns\TextColumn::make('category.name')
-                    ->label('Categoria'),
+                    ->label('Àrea de Conhecimento'),
                 Tables\Columns\TextColumn::make('year')
                     ->label('Ano'),
                 Tables\Columns\TextColumn::make('format')

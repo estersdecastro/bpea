@@ -24,7 +24,7 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->label('Nome da Categoria')
+                    ->label('Àrea de Conhecimento')
                     ->required(),
             ]);
     }
@@ -34,7 +34,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nome da Categoria'),
+                    ->label('Àrea de Conhecimento'),
             ])
             ->filters([
                 //
