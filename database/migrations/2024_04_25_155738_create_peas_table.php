@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('year')->nullable();
             $table->string('format');
             $table->string('keyword')->nullable();
+            $table->string('acc_resources')->nullable();
             $table->string('type');
             $table->string('location')->nullable();
             $table->string('use');

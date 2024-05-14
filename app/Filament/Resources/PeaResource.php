@@ -40,16 +40,25 @@ class PeaResource extends Resource
                     ->numeric()
                     ->minValue(1900)
                     ->maxValue(date('Y')),
-                Forms\Components\Select::make('format')
-                    ->label('Formato')
-                    ->options([
-                        'Físico' => 'Físico',
-                        'Digital' => 'Digital',
-                        'Outro' => 'Outro',
-                    ])
-                    ->required(),
+
                 Forms\Components\TextInput::make('keyword')
                     ->label('Palavra-chave'),
+                
+                //recursos de acessibilidade
+                Forms\Components\Select::make('acc_resources')
+                    ->label('Recursos de Acessibilidade')
+                    ->options([
+                        'Libras' => 'Libras',
+                        'Braile' => 'Braile',
+                        'Legenda' => 'Legenda',
+                        'Audiodescrição' => 'Audiodescrição',
+                        'Janela de Libras' => 'Janela de Libras',
+                        'Tradução Simultânea' => 'Tradução Simultânea',
+                        'Tátil' => 'Tátil',
+                        'Outro' => 'Outro',
+                    ]),
+                    ->required(),
+
                 Forms\Components\Select::make('type')
                     ->label('Tipo')
                     ->options([
@@ -60,20 +69,32 @@ class PeaResource extends Resource
                         'Outro' => 'Outro',
                     ])
                     ->required(),
+
+                Forms\Components\Select::make('use')
+                    ->label('Uso')
+                    ->options([
+                        'Individual' => 'Individual',
+                        'Grupo' => 'Grupo',
+                ]),
+                Forms\Components\Select::make('format')
+                    ->label('Formato')
+                    ->options([
+                        'Físico' => 'Físico',
+                        'Digital' => 'Digital',
+                        'Outro' => 'Outro',
+                    ])
+                    ->required(),
+
                 Forms\Components\FileUpload::make('location')
                     ->disk('local')
                     ->directory('peas')
                     ->visibility('public')
                     ->preserveFilenames()
                     ->label('Localização'),
-                Forms\Components\Select::make('use')
-                    ->label('Uso')
-                    ->options([
-                        'Individual' => 'Individual',
-                        'Grupo' => 'Grupo',
-                    ]),
+
                 Forms\Components\TextInput::make('original_source')
                     ->label('Fonte Original'),
+
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição'),
             ]);
@@ -91,6 +112,8 @@ class PeaResource extends Resource
                     ->label('Ano'),
                 Tables\Columns\TextColumn::make('format')
                     ->label('Formato'),
+                Table\Columns\TextColumn::make('acc_resources')
+                    ->label('Recursos de Acessibilidade'),
                 Tables\Columns\TextColumn::make('keyword')
                     ->label('Palavra-chave'),
                 Tables\Columns\TextColumn::make('type')
