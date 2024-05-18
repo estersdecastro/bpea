@@ -1,4 +1,4 @@
-# Banco de Dados PEA - BPEA - UFPA
+# BPEA - Banco de Dados de Produtos Educacionais Acessíveis - UFPA
 
 <p align="center">
   <img src="/logo.png" alt="Logo BPEA" width="400" height="400">
