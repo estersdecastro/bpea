@@ -20,25 +20,30 @@
     <body>
         <div class="text-center">
             <br>
-            <img src="/logo.png" alt="Logo BPEA" width="288" height="96"><br>
+            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
             <br>
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
+            <br>
             <hr>
             <br>
 
             <p>Entre com seu email e senha</p>
+                <div class="form-group d-flex justify-content-center">
+                    <div class="form-group row" >
+                        <form action="/LoginAction.php" method="post">
+                            
+                            <input type="email" id="email" name="email" placeholder=" Email"required><br><br>
+                            
+                            <input type="password" id="password" name="password" placeholder=" Senha"required><br><br>
+                            <input class= "btn btn-primary" type="submit" value="Entrar">
+                        </form>
+                    </div>
+                </div>
 
-            <form action="/LoginAction.php" method="post">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required><br>
-                <input type="submit" value="Entrar">
-            </form>
-
-            <br><br><br><br><br>
-            <a href="/UserSignup.html">Não tem Login? Cadastre-se</a>
+            <br>
+            <a class="btn btn-primary" href="/UserSignup.html">Não tem Login? Cadastre-se</a>
+            
 
         </div>
         

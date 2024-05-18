@@ -17,15 +17,17 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
 
-    <body class= "text-center">
+    <body class="text-center">
+
         <div class="text-center">
-            <br>
-            <img src="logo.png" alt="Logo BPEA" width="288" height="96"><br>
+            
+            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
             <br>
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
-            <hr>
             <br>
+            <hr><br><br>
+            
 
             <?php $pdo = include 'config.php'; ?>
             <?php error_reporting(E_ERROR | E_PARSE); ?>
@@ -43,67 +45,69 @@
                 $data = $qry->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <h1 style="
-                text-align: center;
-                height: 7;
-                margin-top: 150;
-                margin-bottom:70;
-            "> Consulta de PEA </h1>
-
-            <form method="get">
-                <div class="col-lg-3">
-                    <div class="form-group">
-                        <label for="titulo">Título: </label>
-                        <input class="form-control" id="titulo" placeholder="Título do PEA" name="titulo" value="<?= $titulo ?? "" ?>">
-                    </div>
-                </div>
-              <br>
-                <button type="submit" class="btn btn-primary" style="margin-top: 24;">Buscar</button>
-            </form>
-
-            <?php
-                if(!is_null($titulo) && !empty($titulo)) {
-                    if($count > 0) {
-                        echo 'Encontrado registros com o título ' . $titulo;
-            ?>   
-                        <table class="table table-striped">
-                          <thead>
-                            <th>Título</th>
-                            <th>Formato</th>
-                            <th>Recursos de Acessibilidade</th>
-                            <th>Tipo de Deficiência</th>
-                            <th>Uso</th>
-                          </thead>
-
-                          <tbody>
-                            <?php foreach($data as $row): ?>
-                              <tr>
-                                <td><?php echo $row['titulo']; ?></td>
-                                <td><?php echo $row['formato']; ?></td>
-                                <td><?php echo $row['acc_resources']; ?></td>
-                                <td><?php echo $row['tipo_de_deficiencia']; ?></td>
-                                <td><?php echo $row['uso']; ?></td>
-                              </tr>
-                            <?php endforeach; ?>
-                          </tbody>
-                      </table>
-                      <a href="resultado.php?titulo=<?= urlencode($titulo) ?>">Ver resultados completos</a>     
-
-            <?php }  
-                else {
-                        echo 'Nenhum registro foi encontrado com o título ' . $titulo;
-                    }
-                }
-            ?>
-
-            <br>
-                    <br><br>
-
-                    <a href="/Dashboard.html" class="btn btn-primary">Retornar ao Dashboard</a><br>
-                    <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a><br>
-                    <a href="/index.php" class="btn btn-danger">Sair</a>    
-
-
+            <h1> Consulta de Materiais </h1>
         </div>
+        
+        <div class="form-group d-flex justify-content-center">
+                <form method="get">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <br>
+                            <input class="w-auto p-3" id="titulo" placeholder="Título do PEA" name="titulo" value="<?= $titulo ?? "" ?>">
+                        </div>
+                    </div>
+        
+                  
+                    <button type="submit" class="btn btn-info" style="margin-top: 24;">Buscar</button><br><br><hr>
+        </div>
+                </form>
+                    <div class="form-group d-flex justify-content-center">
+                        <?php
+                            if(!is_null($titulo) && !empty($titulo)) {
+                                if($count > 0) {
+                                    echo 'Encontrado registros com o título ' . $titulo;
+                        ?>
+                    </div>
+                                
+                                    <table class="table table-striped">
+                                      <thead>
+                                        <th>Título</th>
+                                        <th>Formato</th>
+                                        <th>Recursos de Acessibilidade</th>
+                                        <th>Tipo de Deficiência</th>
+                                        <th>Uso</th>
+                                      </thead>
+            
+                                      <tbody>
+                                        <?php foreach($data as $row): ?>
+                                          <tr>
+                                            <td><?php echo $row['titulo']; ?></td>
+                                            <td><?php echo $row['formato']; ?></td>
+                                            <td><?php echo $row['acc_resources']; ?></td>
+                                            <td><?php echo $row['tipo_de_deficiencia']; ?></td>
+                                            <td><?php echo $row['uso']; ?></td>
+                                          </tr>
+                                        <?php endforeach; ?>
+                                      </tbody>
+                                </table>
+                    </div>
+        </div>
+        <div>
+            
+            <a href="resultado.php?titulo=<?= urlencode($titulo) ?>" class="btn btn-info" >Ver resultados completos</a><br><br><br>    
+        </div>
+        <?php }  
+            else {
+                    echo 'Nenhum registro foi encontrado com o título ' . $titulo;
+                }
+            }
+        ?> 
+</div>
+</div>
+<nav class="text-center">
+ <p></p><a href="/Dashboard.html" class="btn btn-primary">Retornar ao início</a>
+  <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
+  <a href="/index.php" class="btn btn-danger">Sair</a></p>  
+</nav>
     </body>
 </html>

@@ -20,7 +20,7 @@
     <body>
         <div class="text-center">
             <br>
-            <img src="logo.png" alt="Logo BPEA" width="288" height="96"><br>
+            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
             <br>
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
@@ -85,13 +85,13 @@
                 height: 7;
                 margin-top: 150;
                 margin-bottom:70;
-            "> Resultados da Consulta de PEA </h3>
+            "> Resultados da Consulta de PEA </h3><br><br>
             
             <?php
                 if(!is_null($titulo) && !empty($titulo)) {
                     if($count > 0) {
                         echo 'Encontrado registros com o título ' . $titulo;?>   
-            
+                    <div>
                         <table class="table table-striped">
                             <thead>
                               <th>Título</th>
@@ -124,19 +124,24 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>     
-            
+                    </div>
             <?php }  
                 else {
                         echo 'Nenhum registro foi encontrado com o título ' . $titulo; }}?>
             
             <br>
-            <p><a href="Upload.php">Cadastrar Novo Material</a></p>
-            <p><a href="dashboard.html">Voltar</a></p>
-            <p><a href="index.php">Sair</a></p>
-            <br>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div> 
+        </div>
+        <nav class="text-center"><br><br
+         <p>
+            <a href="/pesquisa.php" class="btn btn-primary">Nova Consulta</a>
+            <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
+            <a href="/Dashboard.html" class="btn btn-secondary">Retornar ao início</a>
+            <a href="/index.php" class="btn btn-danger">Sair</a>             
+         </p>  
+        </nav>
     </body>
 </html>    
