@@ -1,7 +1,7 @@
 <?php
-$host = 'ep-snowy-lake-a5vejy2z.us-east-2.aws.neon.tech'; // Altere para o seu host PostgreSQL
-$db   = 'neondb'; // Altere para o seu banco de dados PostgreSQL
-$user = 'neondb_owner'; // Altere para o seu usuário PostgreSQL
+$host = ''; // Altere para o seu host PostgreSQL
+$db   = ''; // Altere para o seu banco de dados PostgreSQL
+$user = ''; // Altere para o seu usuário PostgreSQL
 $pass = ''; // Altere para a sua senha PostgreSQL
 $charset = 'utf8';
 
