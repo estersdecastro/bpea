@@ -25,6 +25,8 @@
             unset($_SESSION['success']);
         }
         ?>
+
+        
         <div class="text-center">
             <br>
             <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>

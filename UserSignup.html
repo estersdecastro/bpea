@@ -50,7 +50,7 @@
                 
     <div>
                     <label for="cellphone">Celular</label>
-                    <input type="text" class="form-control" id="cellphone" name="cellphone" required>
+                    <input type="text" class="form-control" id="cellphone" name="cellphone" pattern="[0-9]*" title="Por favor, insira apenas números." value="" required>
                 </div>
 
                 <div>
@@ -137,18 +137,15 @@
                     
                                 if (value == 'docente') {
                                     $("#siape").add('required').closest('div').removeClass('hidden');
-                                    $("#nucleo").add('required').closest('div').removeClass('hidden');
                                     $("#course").add('required').closest('div').removeClass('hidden');
                                 }
                     
                                 if (value == 'tae') {
-                                    $("#siape").add('required').closest('div').removeClass('hidden');
-                                    $("#nucleo").add('required').closest('div').removeClass('hidden');                
+                                    $("#siape").add('required').closest('div').removeClass('hidden');                
                                 }
                     
                                 if (value == 'tec_acc') {
-                                    $("#siape").add('required').closest('div').removeClass('hidden');
-                                    $("#nucleo").add('required').closest('div').removeClass('hidden');    
+                                    $("#siape").add('required').closest('div').removeClass('hidden');    
                                 }
                             });
                         });
@@ -159,30 +156,24 @@
 
                 <div class="col-xs-1-12 hidden type-depender">
                     <label for="cpf">CPF</label>
-                    <input type="text" class="form-control" id="cpf" name="cpf"required>
+                    <input type="text" class="form-control" id="cpf" name="cpf" pattern="[0-9]*" title="Por favor, insira apenas números." value="" required>
                 </div>
 
                 <div class="col-xs-1-12 hidden type-depender">
                     <label for="matricula">Matrícula</label>
-                    <input type="text" class="form-control" id="matricula" name="matricula"required>
+                    <input type="text" class="form-control" id="matricula" name="matricula" pattern="[0-9]*" title="Por favor, insira apenas números." value="" required>
                 </div>
 
                 <div class="col-xs-1-12 hidden type-depender">
                     <label for="siape">Siape</label>
-                    <input type="text" class="form-control" id="siape" name="siape"required>
+                    <input type="text" class="form-control" id="siape" name="siape" pattern="[0-9]*" title="Por favor, insira apenas números." value="" required>
                 </div>
 
                 <div class="col-xs-1-12 hidden type-depender">
                     <label for="course">Curso</label>
                     <input type="text" class="form-control" id="course" name="course"required>
                 </div>
-
-                <div class="col-xs-1-12 hidden type-depender">
-                    <label for="nucleo">Núcleo</label>
-                    <input type="text" class="form-control" id="nucleo" name="nucleo"required>
-                </div>
-
-
+                
                 <div>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>

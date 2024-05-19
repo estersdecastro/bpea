@@ -63,28 +63,28 @@
         exit();
     }
 
-    if ($type == "colaborador" && (!$cpf))
+    if ($type == "colaboradores" && (!$cpf))
     {
         $_SESSION['error'] = 'O cpf deve ser preenchido';
         header("Location: UserSignup.html");
         exit();
     }
 
-    if ($type == "discente" && (!$matricula || !$course))
+    if ($type == "discentes" && (!$matricula || !$course))
     {
         $_SESSION['error'] = 'A Matrícula e o Curso devem ser preenchidos';
         header("Location: UserSignup.html");
         exit();
     }
 
-    if ($type == "docente" && (!$siape || !$nucleo || !$course))
+    if ($type == "docentes" && (!$siape || !$course))
     {
-        $_SESSION['error'] = 'O Siape, o Núcleo e o Curso devem ser preenchidos';
+        $_SESSION['error'] = 'O Siape e o Curso devem ser preenchidos';
     }
 
-    if (($type == "tae" || $type == "tec_acc") && (!$siape || !$nucleo))
+    if (($type == "taes" || $type == "tec_acc") && (!$siape))
     {
-        $_SESSION['error'] = 'O Siape e o Núcleo devem ser preenchidos';
+        $_SESSION['error'] = 'O Siape deve ser preenchidos';
         header("Location: UserSignup.html");
         exit();
     }
@@ -116,16 +116,16 @@
 
     $lastInsertId = $dbData->connection->lastInsertId();
 
-    if ($type == "colaborador") {
-        $sqlColaborador = "INSERT INTO \"colaborador\" (cpf, id_usuario) VALUES (:cpf, :id_usuario)";
+    if ($type == "colaboradores") {
+        $sqlColaborador = "INSERT INTO \"colaboradores\" (cpf, id_usuario) VALUES (:cpf, :id_usuario)";
         $stmtColaborador = $dbData->connection->prepare($sqlColaborador);
         $stmtColaborador->bindValue(':cpf', $cpf);
         $stmtColaborador->bindValue(':id_usuario', $dbData->connection->lastInsertId());
         $stmtColaborador->execute();
     }
 
-    if ($type == "discente") {
-        $sqlDiscente = "INSERT INTO \"discente\" (matricula, course, id_usuario) VALUES (:matricula, :course, :id_usuario)";
+    if ($type == "discentes") {
+        $sqlDiscente = "INSERT INTO \"discentes\" (matricula, course, id_usuario) VALUES (:matricula, :course, :id_usuario)";
         $stmtDiscente = $dbData->connection->prepare($sqlDiscente);
         $stmtDiscente->bindValue(':matricula', $matricula);
         $stmtDiscente->bindValue(':course', $course);
@@ -133,31 +133,28 @@
         $stmtDiscente->execute();
     }
 
-    if ($type == "docente") {
-        $sqlDocente = "INSERT INTO \"docente\" (siape, nucleo, course, id_usuario) VALUES (:siape, :nucleo, :course, :id_usuario)";
+    if ($type == "docentes") {
+        $sqlDocente = "INSERT INTO \"docentes\" (siape, course, id_usuario) VALUES (:siape, :course, :id_usuario)";
         $stmtDocente = $dbData->connection->prepare($sqlDocente);
         $stmtDocente->bindValue(':siape', $siape);
-        $stmtDocente->bindValue(':nucleo', $nucleo);
         $stmtDocente->bindValue(':course', $course);
         $stmtDocente->bindValue(':id_usuario', $dbData->connection->lastInsertId());
         $stmtDocente->execute();
     }
 
-    if ($type == "tae") {
-        $sqlTae = "INSERT INTO \"tae\" (siape, nucleo, id_usuario) VALUES (:siape, :nucleo, :id_usuario)";
+    if ($type == "taes") {
+        $sqlTae = "INSERT INTO \"taes\" (siape, id_usuario) VALUES (:siape, :id_usuario)";
         $stmtTae = $dbData->connection->prepare($sqlTae);
         $stmtTae->bindValue(':siape', $siape);
-        $stmtTae->bindValue(':nucleo', $nucleo);
         $stmtTae->bindValue(':id_usuario', $dbData->connection->lastInsertId());
         $stmtTae->execute();
     }
 
     if ($type == "tec_tcc")
     {
-        $sqlTae = "INSERT INTO \"tec_tcc\" (siape, nucleo, id_usuario) VALUES (:siape, :nucleo, :id_usuario)";
+        $sqlTae = "INSERT INTO \"tec_tcc\" (siape, id_usuario) VALUES (:siape, :id_usuario)";
         $stmtTae = $dbData->connection->prepare($sqlTae);
         $stmtTae->bindValue(':siape', $siape);
-        $stmtTae->bindValue(':nucleo', $nucleo);
         $stmtTae->bindValue(':id_usuario', $dbData->connection->lastInsertId());
         $stmtTae->execute();
 

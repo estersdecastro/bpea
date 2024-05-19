@@ -85,7 +85,9 @@
                 height: 7;
                 margin-top: 150;
                 margin-bottom:70;
-            "> Resultados da Consulta de PEA </h3><br><br>
+            "> Resultados da Consulta de PEA </h3>
+            <p>Não Atualize essa página!!</p>
+            <br><br>
             
             <?php
                 if(!is_null($titulo) && !empty($titulo)) {
