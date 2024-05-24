@@ -29,7 +29,7 @@
             <hr><br><br>
             
 
-            <?php $pdo = include 'config.php'; ?>
+            <?php $pdo = include '/config.php'; ?>
             <?php error_reporting(E_ERROR | E_PARSE); ?>
 
             <?php
@@ -105,7 +105,7 @@
 </div>
 </div>
 <nav class="text-center">
- <p></p><a href="/Dashboard.html" class="btn btn-primary">Retornar ao início</a>
+ <p></p><a href="/dashboard.php" class="btn btn-primary">Retornar ao início</a>
   <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
   <a href="/index.php" class="btn btn-danger">Sair</a></p>  
 </nav>

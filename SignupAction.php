@@ -1,5 +1,5 @@
 <?php 
-    include 'config.php';
+    include '/config.php';
     $dbData = new stdClass();
     $dbData->connection = $pdo; 
 
@@ -17,7 +17,7 @@
     if (!$name)
     {
         $_SESSION['error'] = 'O Nome deve ser preenchido';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
@@ -25,14 +25,14 @@
     if (!$email)
     {
         $_SESSION['error'] = 'O email deve ser preenchido';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
     if (!$cellphone)
     {
         $_SESSION['error'] = 'O Celular deve ser preenchido';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
@@ -40,14 +40,14 @@
     if (!$password)
     {
         $_SESSION['error'] = 'A Senha deve ser preenchida';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
     if (!$type)
     {
         $_SESSION['error'] = 'Declare o seu tipo de usuário';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
@@ -59,21 +59,21 @@
 
     if ($type != "colaborador" && $type != "discente" && $type != "docente" && $type != "tae" && $type != "tec_acc") {
         $_SESSION['error'] = 'Tipo inválido';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
     if ($type == "colaboradores" && (!$cpf))
     {
         $_SESSION['error'] = 'O cpf deve ser preenchido';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
     if ($type == "discentes" && (!$matricula || !$course))
     {
         $_SESSION['error'] = 'A Matrícula e o Curso devem ser preenchidos';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
@@ -85,7 +85,7 @@
     if (($type == "taes" || $type == "tec_acc") && (!$siape))
     {
         $_SESSION['error'] = 'O Siape deve ser preenchidos';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit();
     }
 
@@ -96,7 +96,7 @@
 
     if ($stmtUser->rowCount() > 0) {
         $_SESSION['error'] = 'E-mail já cadastrado';
-        header("Location: UserSignup.html");
+        header("Location: /UserSignup.php");
         exit;
     }
 

@@ -128,7 +128,7 @@
 
 
 
-            <a href="/Dashboard.html" class="btn btn-primary">Retornar ao Início</a>
+            <a href="/dashboard.php" class="btn btn-primary">Retornar ao Início</a>
             <a href="/pesquisa.php" class="btn btn-primary">Consultar Material</a>
             <a href="/index.php" class="btn btn-danger">Sair</a>   
         </div>

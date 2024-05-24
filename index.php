@@ -31,8 +31,8 @@
 
         <nav class="text-center">
             <br>
-            <a href="/UserSignup.html" class="btn btn-primary">Cadastre-se</a>
-            <a href="/UserLogin.html" class="btn btn-primary">Faça Login</a>
+            <a href="/UserSignup.php" class="btn btn-primary">Cadastre-se</a>
+            <a href="/UserLogin.php" class="btn btn-primary">Faça Login</a>
         </nav>
 
     </body>

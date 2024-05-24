@@ -28,7 +28,7 @@
             <br>
 
             <?php
-            include 'config.php';
+            include '/config.php';
             
             $id = isset($_GET['id']) ? $_GET['id'] : null;
             
@@ -59,7 +59,7 @@
                 <p><strong>Descrição:</strong> <?php echo $data['descricao']; ?></p>
             
             
-                <a href="dashboard.php">Voltar</a>
+                <a href="/dashboard.php">Voltar</a>
             </body>
             </html>
             
@@ -141,7 +141,7 @@
          <p>
             <a href="/pesquisa.php" class="btn btn-primary">Nova Consulta</a>
             <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
-            <a href="/Dashboard.html" class="btn btn-secondary">Retornar ao início</a>
+            <a href="/dashboard.php" class="btn btn-secondary">Retornar ao início</a>
             <a href="/index.php" class="btn btn-danger">Sair</a>             
          </p>  
         </nav>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include 'config.php';
+include '/config.php';
 $dbData = new stdClass();
 $dbData->connection = $pdo; 
 
@@ -28,7 +28,7 @@ $fonte_original = $pdo->quote($fonte_original);
 $descricao = $pdo->quote($descricao);
 
 // Tratamento do arquivo enviado
-$target_dir = "uploads/";
+$target_dir = "/uploads/";
 $target_file = $target_dir . basename($_FILES["local"]["name"]);
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
