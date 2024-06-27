@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '/config.php';
+include 'config.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -15,9 +15,9 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($user && password_verify($password, $user['password'])) {
     $_SESSION['user_id'] = $user['id'];
-    header("Location: dashboard.php");
+    header("Location: Dashboard.html");
     exit;
 } else {
-    header("Location: /login.php?error=invalid_credentials");
+    header("Location: login.php?error=invalid_credentials");
     exit;
 }

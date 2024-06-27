@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Consulta - BPEA</title>
-        <link rel="icon" href="/icone.ico">
+
         <style>
             .hidden {
                 display: none;
@@ -21,15 +21,11 @@
 
         <div class="text-center">
             
-            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
-            <br>
-            <h1>BPEA - UFPA</h1>
-            <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
-            <br>
+            <img src="/logo.png" alt="Logo BPEA" width="880px" height="176px">
             <hr><br><br>
             
 
-            <?php $pdo = include '/config.php'; ?>
+            <?php $pdo = include 'config.php'; ?>
             <?php error_reporting(E_ERROR | E_PARSE); ?>
 
             <?php
@@ -105,7 +101,7 @@
 </div>
 </div>
 <nav class="text-center">
- <p></p><a href="/dashboard.php" class="btn btn-primary">Retornar ao início</a>
+ <p></p><a href="/Dashboard.html" class="btn btn-primary">Retornar ao início</a>
   <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
   <a href="/index.php" class="btn btn-danger">Sair</a></p>  
 </nav>

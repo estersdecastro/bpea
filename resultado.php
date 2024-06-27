@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Resultados - BPEA</title>
-        <link rel="icon" href="/icone.ico">
+
         <style>
             .hidden {
                 display: none;
@@ -19,16 +19,12 @@
 
     <body>
         <div class="text-center">
-            <br>
-            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
-            <br>
-            <h1>BPEA - UFPA</h1>
-            <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
+            <img src="/logo.png" alt="Logo BPEA" width="880px" height="176px">
             <hr>
             <br>
 
             <?php
-            include '/config.php';
+            include 'config.php';
             
             $id = isset($_GET['id']) ? $_GET['id'] : null;
             
@@ -59,7 +55,7 @@
                 <p><strong>Descrição:</strong> <?php echo $data['descricao']; ?></p>
             
             
-                <a href="/dashboard.php">Voltar</a>
+                <a href="dashboard.php">Voltar</a>
             </body>
             </html>
             
@@ -141,7 +137,7 @@
          <p>
             <a href="/pesquisa.php" class="btn btn-primary">Nova Consulta</a>
             <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
-            <a href="/dashboard.php" class="btn btn-secondary">Retornar ao início</a>
+            <a href="/Dashboard.html" class="btn btn-secondary">Retornar ao início</a>
             <a href="/index.php" class="btn btn-danger">Sair</a>             
          </p>  
         </nav>
