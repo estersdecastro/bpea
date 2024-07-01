@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+
+    header("Location: UserLogin.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -19,7 +29,9 @@
 
     <body>
         <div class="text-center">
-            <img src="/logo.png" alt="Logo BPEA" width="880px" height="176px">
+            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">
+            <h1>BPEA - UFPA</h1>
+            <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
             <hr>
             <br>
 
@@ -55,7 +67,7 @@
                 <p><strong>Descrição:</strong> <?php echo $data['descricao']; ?></p>
             
             
-                <a href="dashboard.php">Voltar</a>
+                <a href="Dashboard.html">Voltar</a>
             </body>
             </html>
             

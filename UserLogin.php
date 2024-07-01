@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login - BPEA</title>
-        <link rel="icon" href="/icone.ico">
+
         <style>
             .hidden {
                 display: none;
@@ -19,14 +19,9 @@
     
     <body>
         <div class="text-center">
-            <br>
-            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
-            <br>
+            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">            
             <h1>BPEA - UFPA</h1>
-            <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
-            <br>
-            <hr>
-            <br>
+            <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p><br><hr>
 
             <p>Entre com seu email e senha</p>
                 <div class="form-group d-flex justify-content-center">

@@ -28,7 +28,9 @@
 
 
         <div class="text-center">
-            <img src="/logo.png" alt="Logo BPEA" width="880px" height="176px">
+            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">
+            <h1>BPEA - UFPA</h1>
+            <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
             <hr>
             <h2>Formulário de Cadastro</h2><br>
 
