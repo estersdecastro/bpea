@@ -2,7 +2,6 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    
     header("Location: UserLogin.php");
     exit;
 }
@@ -31,21 +30,21 @@ if (!isset($_SESSION['user_id'])) {
         
         <div class="text-center">
             <br>
-            <img src="/logo.png" alt="Logo BPEA" width="200" height="200"><br>
+            <img src="../assets/images/logo.png" alt="Logo BPEA" width="200" height="200"><br>
             <br>
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
             <hr>
             <br>
-            <p><a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
-            <a href="/pesquisa.php" class="btn btn-primary">Consultar Material</a></p>           
+            <p><a href="Upload.php" class="btn btn-primary">Cadastrar Material</a>
+            <a href="pesquisa.php" class="btn btn-primary">Consultar Material</a></p>           
                
         </div>
         <br><br>
     
         
         <nav class="text-center">
-            <a href="/index.php" class="btn btn-danger">Sair</a>
+            <a href="../index.php" class="btn btn-danger">Sair</a>
         </nav>
 
     </body>

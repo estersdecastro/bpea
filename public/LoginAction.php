@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'config.php';
+include '../src/config/config.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];

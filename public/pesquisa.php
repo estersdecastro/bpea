@@ -31,13 +31,13 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="text-center">
             
-            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">
+            <img src="../assets/images/logo.png" alt="Logo BPEA" width="200px" height="200px">
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
             <hr><br><br>
             
 
-            <?php $pdo = include 'config.php'; ?>
+            <?php $pdo = include '../src/config/config.php'; ?>
             <?php error_reporting(E_ERROR | E_PARSE); ?>
 
             <?php
@@ -113,9 +113,9 @@ if (!isset($_SESSION['user_id'])) {
 </div>
 </div>
 <nav class="text-center">
- <p></p><a href="/Dashboard.html" class="btn btn-primary">Retornar ao início</a>
-  <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
-  <a href="/index.php" class="btn btn-danger">Sair</a></p>  
+ <p></p><a href="Dashboard.html" class="btn btn-primary">Retornar ao início</a>
+  <a href="Upload.php" class="btn btn-primary">Cadastrar Material</a>
+  <a href="../index.php" class="btn btn-danger">Sair</a></p>  
 </nav>
     </body>
 </html>

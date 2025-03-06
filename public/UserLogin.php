@@ -19,7 +19,7 @@
     
     <body>
         <div class="text-center">
-            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">            
+            <img src="../assets/images/logo.png" alt="Logo BPEA" width="200px" height="200px">            
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p><br><hr>
 
@@ -37,7 +37,8 @@
                 </div>
 
             <br>
-            <a class="btn btn-primary" href="/UserSignup.php">Não tem Login? Cadastre-se</a>
+            <a class="btn btn-primary" href="UserSignup.php">Não tem Login? Cadastre-se</a>
+            <a class="btn btn-secondary" href="../index.php">inicio</a>
             
 
         </div>

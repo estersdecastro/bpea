@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:7.4-apache
+    container_name: php-apache
+    volumes:
+      - ./public:/var/www/html
+      - ./src/config:/var/www/html/config
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: bpea_db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

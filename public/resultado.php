@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
 
-    header("Location: UserLogin.php");
+    header("Location: public/UserLogin.php");
     exit;
 }
 ?>
@@ -29,14 +29,14 @@ if (!isset($_SESSION['user_id'])) {
 
     <body>
         <div class="text-center">
-            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">
+            <img src="assets/images/logo.png" alt="Logo BPEA" width="200px" height="200px">
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
             <hr>
             <br>
 
             <?php
-            include 'config.php';
+            include '../src/config/config.php';
             
             $id = isset($_GET['id']) ? $_GET['id'] : null;
             
@@ -67,7 +67,7 @@ if (!isset($_SESSION['user_id'])) {
                 <p><strong>Descrição:</strong> <?php echo $data['descricao']; ?></p>
             
             
-                <a href="Dashboard.html">Voltar</a>
+                <a href="dashboard.php">Voltar</a>
             </body>
             </html>
             
@@ -147,10 +147,10 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <nav class="text-center"><br><br
          <p>
-            <a href="/pesquisa.php" class="btn btn-primary">Nova Consulta</a>
-            <a href="/Upload.php" class="btn btn-primary">Cadastrar Material</a>
-            <a href="/Dashboard.html" class="btn btn-secondary">Retornar ao início</a>
-            <a href="/index.php" class="btn btn-danger">Sair</a>             
+            <a href="pesquisa.php" class="btn btn-primary">Nova Consulta</a>
+            <a href="Upload.php" class="btn btn-primary">Cadastrar Material</a>
+            <a href="Dashboard.html" class="btn btn-secondary">Retornar ao início</a>
+            <a href="../index.php" class="btn btn-danger">Sair</a>             
          </p>  
         </nav>
     </body>

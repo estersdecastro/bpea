@@ -1,5 +1,5 @@
 <?php 
-    include 'config.php';
+    include '../src/config/config.php';
     $dbData = new stdClass();
     $dbData->connection = $pdo; 
 
@@ -161,6 +161,6 @@
     }
 
     $_SESSION['success'] = 'Cadastro realizado com sucesso!';
-    header('Location: /index.html');
+    header('Location: ../index.html');
     exit();
 ?> 
