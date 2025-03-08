@@ -5,7 +5,7 @@ services:
     image: php:7.4-apache
     container_name: php-apache
     volumes:
-      - ./public:/var/www/html
+      - ./:/var/www/html
       - ./src/config:/var/www/html/config
     ports:
       - "8080:80"
