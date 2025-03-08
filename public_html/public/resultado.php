@@ -36,7 +36,7 @@ if (!isset($_SESSION['user_id'])) {
             <br>
 
             <?php
-            include '../src/config/config.php';
+            include '../config/config.php';
             
             $id = isset($_GET['id']) ? $_GET['id'] : null;
             

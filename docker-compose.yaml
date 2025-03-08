@@ -5,8 +5,8 @@ services:
     image: php:7.4-apache
     container_name: php-apache
     volumes:
-      - ./:/var/www/html
-      - ./src/config:/var/www/html/config
+      - ./public_html/.:/var/www/html
+      - ./public_html/src/config:/var/www/html/config
     ports:
       - "8080:80"
     depends_on:

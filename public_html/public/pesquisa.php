@@ -37,7 +37,7 @@ if (!isset($_SESSION['user_id'])) {
             <hr><br><br>
             
 
-            <?php $pdo = include '../src/config/config.php'; ?>
+            <?php $pdo = include '../config/config.php'; ?>
             <?php error_reporting(E_ERROR | E_PARSE); ?>
 
             <?php

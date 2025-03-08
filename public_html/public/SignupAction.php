@@ -1,5 +1,5 @@
 <?php 
-    include '../src/config/config.php';
+    include '../config/config.php';
     $dbData = new stdClass();
     $dbData->connection = $pdo; 
 
