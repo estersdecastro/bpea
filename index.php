@@ -1,18 +1,9 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: UserLogin.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard - BPEA</title>
+        <title>Home - BPEA</title>
 
         <style>
             .hidden {
@@ -25,26 +16,25 @@ if (!isset($_SESSION['user_id'])) {
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
-    
+
     <body>
-        
         <div class="text-center">
+            
             <br>
-            <img src="../assets/images/logo.png" alt="Logo BPEA" width="200" height="200"><br>
+            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">
             <br>
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
-            <hr>
             <br>
-            <p><a href="Upload.php" class="btn btn-primary">Cadastrar Material</a>
-            <a href="pesquisa.php" class="btn btn-primary">Consultar Material</a></p>           
-               
+            <hr>
         </div>
-        <br><br>
-    
-        
+        </div>
+
         <nav class="text-center">
-            <a href="../index.php" class="btn btn-danger">Sair</a>
+            <br>
+            <a href="/UserSignup.php" class="btn btn-primary">Cadastre-se</a>
+            <a href="/UserLogin.php" class="btn btn-primary">Faça Login</a>
+            
         </nav>
 
     </body>

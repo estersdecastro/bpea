@@ -28,7 +28,7 @@
 
 
         <div class="text-center">
-            <img src="../assets/images/logo.png" alt="Logo BPEA" width="200px" height="200px">
+            <img src="/logo.png" alt="Logo BPEA" width="200px" height="200px">
             <h1>BPEA - UFPA</h1>
             <p>Banco de Dados de Produtos Educacionais Acessíveis - UFPA</p>
             <hr>
@@ -124,9 +124,9 @@
 
 
 
-            <a href="Dashboard.html" class="btn btn-primary">Retornar ao Início</a>
-            <a href="pesquisa.php" class="btn btn-primary">Consultar Material</a>
-            <a href="../index.php" class="btn btn-danger">Sair</a>   
+            <a href="/Dashboard.html" class="btn btn-primary">Retornar ao Início</a>
+            <a href="/pesquisa.php" class="btn btn-primary">Consultar Material</a>
+            <a href="/index.php" class="btn btn-danger">Sair</a>   
         </div>
     </body>
 </html>

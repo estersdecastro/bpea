@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../config/config.php';
+include 'config.php';
 $dbData = new stdClass();
 $dbData->connection = $pdo; 
 
@@ -28,7 +28,7 @@ $fonte_original = $pdo->quote($fonte_original);
 $descricao = $pdo->quote($descricao);
 
 // Tratamento do arquivo enviado
-$target_dir = "../uploads/";
+$target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["local"]["name"]);
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -45,10 +45,10 @@ $sql = "INSERT INTO pea (titulo, keyword, ano, id_categoria, formato, acc_resour
 if ($pdo->exec($sql))  {
     // O produto foi criado com sucesso, redireciona para a página de sucesso
     $_SESSION['success'] = "Upload realizado com sucesso!";
-    header("Location: Upload.php");
+    header("Location: /Upload.php");
 } else {
     // Houve um erro ao criar o produto, redireciona de volta para a página de upload com uma mensagem de erro
-    header("Location: Upload.php?error=upload_failed");
+    header("Location: /Upload.php?error=upload_failed");
 }
 
 
