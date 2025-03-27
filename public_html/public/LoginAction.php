@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '../config/config.php';
+include '/home/estersdecastro/bpea/public_html/';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
